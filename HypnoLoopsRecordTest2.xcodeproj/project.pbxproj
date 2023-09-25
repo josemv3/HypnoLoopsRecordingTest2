@@ -23,6 +23,8 @@
 		E0433E992ABB371000AED88D /* chopin.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E0433E982ABB371000AED88D /* chopin.mp3 */; };
 		E0433E9B2ABBA55B00AED88D /* APRView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0433E9A2ABBA55B00AED88D /* APRView.swift */; };
 		E0433E9D2ABCF1AB00AED88D /* SoundScapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0433E9C2ABCF1AB00AED88D /* SoundScapeView.swift */; };
+		E0433E9F2ABCFA4300AED88D /* AudioLoopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0433E9E2ABCFA4300AED88D /* AudioLoopView.swift */; };
+		E0433EA12ABD072900AED88D /* SpecializedAudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0433EA02ABD072900AED88D /* SpecializedAudioPlayer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +45,8 @@
 		E0433E982ABB371000AED88D /* chopin.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = chopin.mp3; sourceTree = "<group>"; };
 		E0433E9A2ABBA55B00AED88D /* APRView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APRView.swift; sourceTree = "<group>"; };
 		E0433E9C2ABCF1AB00AED88D /* SoundScapeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundScapeView.swift; sourceTree = "<group>"; };
+		E0433E9E2ABCFA4300AED88D /* AudioLoopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioLoopView.swift; sourceTree = "<group>"; };
+		E0433EA02ABD072900AED88D /* SpecializedAudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecializedAudioPlayer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,11 +85,13 @@
 				E0433E8E2ABA4F5700AED88D /* AnimationTest.swift */,
 				E0433E9A2ABBA55B00AED88D /* APRView.swift */,
 				E0433E862ABA17A600AED88D /* AudioManager.swift */,
+				E0433EA02ABD072900AED88D /* SpecializedAudioPlayer.swift */,
 				E0433E8C2ABA4EEC00AED88D /* RecordView2.swift */,
 				E0433E902ABA651800AED88D /* PlayView.swift */,
 				E0433E942ABA97ED00AED88D /* PlayView2.swift */,
 				E0433E8A2ABA1D2500AED88D /* RecordingsView.swift */,
 				E0433E9C2ABCF1AB00AED88D /* SoundScapeView.swift */,
+				E0433E9E2ABCFA4300AED88D /* AudioLoopView.swift */,
 				E0433E922ABA656400AED88D /* TabViewHome.swift */,
 				E0433E7C2ABA177C00AED88D /* Assets.xcassets */,
 				E0433E982ABB371000AED88D /* chopin.mp3 */,
@@ -182,8 +188,10 @@
 				E0433E912ABA651800AED88D /* PlayView.swift in Sources */,
 				E0433E9B2ABBA55B00AED88D /* APRView.swift in Sources */,
 				E0433E8B2ABA1D2500AED88D /* RecordingsView.swift in Sources */,
+				E0433EA12ABD072900AED88D /* SpecializedAudioPlayer.swift in Sources */,
 				E0433E872ABA17A600AED88D /* AudioManager.swift in Sources */,
 				E0433E892ABA17B700AED88D /* RecordView.swift in Sources */,
+				E0433E9F2ABCFA4300AED88D /* AudioLoopView.swift in Sources */,
 				E0433E952ABA97ED00AED88D /* PlayView2.swift in Sources */,
 				E0433E7B2ABA177B00AED88D /* ContentView.swift in Sources */,
 				E0433E792ABA177B00AED88D /* HypnoLoopsRecordTest2App.swift in Sources */,

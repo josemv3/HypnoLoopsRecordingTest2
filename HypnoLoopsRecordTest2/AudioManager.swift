@@ -7,12 +7,20 @@ class AudioManager: NSObject, ObservableObject {
     
     private var audioRecorder: AVAudioRecorder?
     private var audioPlayer: AVAudioPlayer?
+    private var audioPlayerSecond: AVAudioPlayer?
+    
+    private var musicPlayer: AVAudioPlayer?
+    @Published var isPlayingMusic = false
     
     @Published var recordings: [URL] = []
     @Published var isRecording = false
     @Published var isPlaying = false
+    @Published var isPlayingSecondAudio = false
     
     @Published var currentlyPlayingURL: URL?
+    
+    var onLoopShouldRestart: (() -> Void)?
+
 
     override init() {
            super.init()
@@ -157,16 +165,105 @@ class AudioManager: NSObject, ObservableObject {
             print("Failed to fetch recordings: \(error)")
         }
     }
+    
+    //Specialized Player
+    
+    func playRecordingSpecial(url: URL) {
+        do {
+            if isPlaying {
+                audioPlayer?.stop()
+                audioPlayerSecond?.stop()
+                isPlaying = false
+                currentlyPlayingURL = nil
+                isPlayingSecondAudio = false
+                return
+            }
+            
+            audioPlayer = try AVAudioPlayer(contentsOf: url)
+            audioPlayer?.delegate = self
+            audioPlayer?.play()
+            isPlaying = true
+            currentlyPlayingURL = url
+            
+            isPlayingSecondAudio = false
+            
+            let delay = (audioPlayer?.duration ?? 0) * 0.5 // Play the second version halfway through
+            DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
+                self.playSecondVersionOfAudio(url: url)
+            }
+        } catch {
+            print("Failed to play recording: \(error)")
+            isPlaying = false
+            currentlyPlayingURL = nil
+        }
+    }
+
+
+    func playSecondVersionOfAudio(url: URL) {
+        do {
+            audioPlayerSecond = try AVAudioPlayer(contentsOf: url)
+            audioPlayerSecond?.delegate = self
+            audioPlayerSecond?.volume = 0.5
+            audioPlayerSecond?.play()
+            isPlayingSecondAudio = true
+
+            let halfDuration = (audioPlayerSecond?.duration ?? 0) * 0.5
+            DispatchQueue.main.asyncAfter(deadline: .now() + halfDuration) {
+                self.onLoopShouldRestart?()
+            }
+        } catch {
+            print("Failed to play second audio: \(error)")
+        }
+    }
+
+
+    func getDuration(of audioURL: URL) -> TimeInterval {
+        do {
+            let audioAsset = AVURLAsset(url: audioURL, options: nil)
+            let audioDuration = CMTimeGetSeconds(audioAsset.duration)
+            return audioDuration
+        } catch {
+            print("Error fetching audio duration: \(error)")
+            return 0.0
+        }
+    }
+
+    func startMusic(url: URL) {
+        guard !isPlayingMusic else { return }
+        
+        do {
+            musicPlayer = try AVAudioPlayer(contentsOf: url)
+            //musicPlayer?.numberOfLoops = -1  // Infinite loop
+            musicPlayer?.play()
+            musicPlayer?.volume = 0.2
+            isPlayingMusic = true
+        } catch {
+            print("Could not start music: \(error)")
+        }
+    }
+
+    func stopMusic() {
+        musicPlayer?.stop()
+        isPlayingMusic = false
+    }
+
 
 }
 
 extension AudioManager: AVAudioPlayerDelegate {
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
-        print("Delegate finishedPlaying audio")
+        if player === audioPlayer {
+                   isPlaying = false
+                   currentlyPlayingURL = nil
+               } else if player === audioPlayerSecond {
+                   isPlayingSecondAudio = false
+               }
+        
         isPlaying = false
         currentlyPlayingURL = nil
-        
+        // If it's the first audio player (`audioPlayer`) that's done playing, do nothing since the second one might be playing.
     }
+
 
 }
 

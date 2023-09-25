@@ -27,7 +27,7 @@ struct HomeTabView: View {
                     Text("Record")
                 }
 
-            Text("Affirmations")
+            AudioLoopView(audioManager: audioManager)
                 .tabItem {
                     Image(systemName: "square.grid.2x2")
                     Text("Affirmations")
