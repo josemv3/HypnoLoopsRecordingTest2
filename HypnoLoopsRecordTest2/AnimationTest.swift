@@ -20,8 +20,13 @@ struct AnimationTest: View {
     @State private var pulseSmallCircle: Bool = true
     
     var audioURLToPlay: URL?  // New property for the specific URL
+    var musicURLToPlay: URL?
     var startSymbol: String
     var stopSymbol: String
+    
+    @State private var isLooping: Bool = false
+    //let loopDuration: Double = 30.0 // seconds
+    //@State private var isPlayingFirstAudio: Bool = true
     
     var body: some View {
         
@@ -52,7 +57,7 @@ struct AnimationTest: View {
                 .shadow(color: .black.opacity(0.39), radius: 3, x: 5, y: 5)
            
             Button(action: {
-                //toggleAnimation()
+                
                 handleAudioControl()
                 toggleVisualAnimation()
             }) {
@@ -61,7 +66,7 @@ struct AnimationTest: View {
                     .foregroundColor(animate ? .red : .white)
             }
         }
-        .onChange(of: audioManager.isPlaying) { isPlaying in
+        .onChange(of: audioManager.isPlayingMusic) { isPlaying in
             if !isPlaying {
                 
                 self.animate = false
@@ -85,17 +90,55 @@ struct AnimationTest: View {
                 animate = true
             }
         } else if startSymbol == "stop.fill" {
-            if audioManager.isPlaying {
-                audioManager.stopPlaying()
+            if audioManager.isPlayingMusic {
+                //audioManager.stopPlaying()
+                //audioManager.stopMusic()
+                togglePlayback()
                 animate = false
             } else {
-                let playbackURL = audioURLToPlay ?? audioManager.recordings.last
-                if let url = playbackURL {
-                    audioManager.startPlaying(audioURL: url)
-                    animate = true
-                }
+//                let playbackURL = audioURLToPlay ?? audioManager.recordings.last
+//                if let url = playbackURL {
+//                    audioManager.startPlaying(audioURL: url)
+//                    animate = true
+//                }
+                //let musicURL = musicURLToPlay
+//                if let mURL = musicURL {
+//                    audioManager.startMusic(url: musicURL!)
+//                }
+                togglePlayback()
+                animate = true
+                print("MUSIC URL", musicURLToPlay)
             }
         }
+    }
+    
+    func togglePlayback() {
+        isLooping.toggle()
+        if isLooping {
+            startLooping()
+            if let musicURL = musicURLToPlay {
+                // Use musicURL here
+                audioManager.startMusic(url: musicURL)
+            }
+            
+        } else {
+            audioManager.stopMusic()
+            audioManager.stopPlaying()
+            audioManager.onLoopShouldRestart = nil
+        }
+    }
+
+
+    func startLooping() {
+        guard !audioManager.recordings.isEmpty else { return }
+        let defaultLoop =  audioManager.recordings.first!
+        let loopAudioURL = musicURLToPlay ?? defaultLoop
+        
+        audioManager.onLoopShouldRestart = {
+            self.startLooping()
+        }
+        
+        audioManager.playRecordingSpecial(url: loopAudioURL)
     }
 
     // This function will handle the visual animations.

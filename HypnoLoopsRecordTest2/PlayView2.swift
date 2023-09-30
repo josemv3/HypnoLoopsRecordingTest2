@@ -14,18 +14,10 @@ struct PlayView2: View {
   //  @Binding var selectedRecording: URL?
 
     @State var selectedRecording: URL?
+    @State var selectedSoundScape: URL?
     
     @State private var activeSheet: ActiveSheet?
     @State private var settingsDetent = PresentationDetent.medium
-    
- //   let viewModel: AnimationTestViewModel
-
-//    init(audioManager: AudioManager, selectedRecording: Binding<URL?>) {
-//        self.audioManager = audioManager
-//        self._selectedRecording = selectedRecording
-//        self.viewModel = AnimationTestViewModel(audioManager: audioManager, audioURLToPlay: selectedRecording)
-//        self.viewModel.currentSymbol = "play.fill"
-//    }
     
     var body: some View {
         ZStack {
@@ -43,17 +35,13 @@ struct PlayView2: View {
                     .padding(5)
                 
                 ZStack {
-                    AnimationTest(audioManager: audioManager, audioURLToPlay: selectedRecording ,startSymbol: "stop.fill", stopSymbol: "play" )
-                    
-                  
-//                       APRView(viewModel: viewModel)
-//                           .padding(.bottom, 20)
+                    AnimationTest(audioManager: audioManager, audioURLToPlay: selectedRecording, musicURLToPlay: selectedSoundScape ,startSymbol: "stop.fill", stopSymbol: "play" )
                 }
                 
                 
                 HStack {
                     Button(action: {
-                       //self.activeSheet = .settings
+                       self.activeSheet = .settings
                        print("Settings pressed!")
                    }) {
                        Image(systemName: "slider.horizontal.3")
@@ -82,36 +70,11 @@ struct PlayView2: View {
                 .frame(width: 300, height: 50)
                 
                 VStack(spacing: 10) {
-                    
-                    
-                    // Soundscape Button
-//                    Button(action: {
-//                        // Handle the save action here
-//                    }) {
-//                        Text("Soundscape Name")
-//                            .foregroundColor(.white)
-//                            .padding(5)
-//                        Spacer()
-//                        Image(systemName: "chevron.down")
-//                            .foregroundColor(.white)
-//                            .padding(5)
-//                    }
-//                    .frame(width: 250, height: 40)
-//                    .background(Color.clear)
-//                    .overlay(
-//                        RoundedRectangle(cornerRadius: 8)
-//                            .stroke(Color.white, lineWidth: 1)
-//                    )
-//                    .padding(.bottom, 5)
-                    
+
                     
                     //Soundscape Button
                     HStack {
-//                        Text("Sounds:")
-//                            .foregroundColor(.white)
-//                            .padding(10)
-                        
-                        Text("Sounds: \(selectedRecording?.deletingPathExtension().lastPathComponent ?? "None")" )
+                        Text("Sounds: \(selectedSoundScape?.deletingPathExtension().lastPathComponent ?? "None")" )
                             .foregroundColor(.white)
                             .frame(width: 300, height: 40)
                             .padding(.leading, 3)
@@ -151,13 +114,15 @@ struct PlayView2: View {
         .sheet(item: $activeSheet) { item in
             switch item {
             case .settings:
-                EmptyView()
+                PlaySettingsView()
                     .presentationDetents(
                         [.medium, .large],
                         selection: $settingsDetent
                     )
             case .soundScape:
-                EmptyView()
+                SoundScapeView() { url in
+                    self.selectedSoundScape = url
+                }
                     .presentationDetents(
                         [.medium, .large],
                         selection: $settingsDetent

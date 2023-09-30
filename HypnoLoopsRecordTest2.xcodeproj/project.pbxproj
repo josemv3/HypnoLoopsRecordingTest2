@@ -25,6 +25,9 @@
 		E0433E9D2ABCF1AB00AED88D /* SoundScapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0433E9C2ABCF1AB00AED88D /* SoundScapeView.swift */; };
 		E0433E9F2ABCFA4300AED88D /* AudioLoopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0433E9E2ABCFA4300AED88D /* AudioLoopView.swift */; };
 		E0433EA12ABD072900AED88D /* SpecializedAudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0433EA02ABD072900AED88D /* SpecializedAudioPlayer.swift */; };
+		E0433EA82AC3659B00AED88D /* sound_bowls_nature.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E0433EA62AC3659A00AED88D /* sound_bowls_nature.mp3 */; };
+		E0433EA92AC3659B00AED88D /* ocean_waves.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E0433EA72AC3659B00AED88D /* ocean_waves.mp3 */; };
+		E04F563D2AC4D44300A7F1D1 /* PlaySettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04F563C2AC4D44300A7F1D1 /* PlaySettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +50,9 @@
 		E0433E9C2ABCF1AB00AED88D /* SoundScapeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundScapeView.swift; sourceTree = "<group>"; };
 		E0433E9E2ABCFA4300AED88D /* AudioLoopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioLoopView.swift; sourceTree = "<group>"; };
 		E0433EA02ABD072900AED88D /* SpecializedAudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecializedAudioPlayer.swift; sourceTree = "<group>"; };
+		E0433EA62AC3659A00AED88D /* sound_bowls_nature.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sound_bowls_nature.mp3; sourceTree = "<group>"; };
+		E0433EA72AC3659B00AED88D /* ocean_waves.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ocean_waves.mp3; sourceTree = "<group>"; };
+		E04F563C2AC4D44300A7F1D1 /* PlaySettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaySettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,9 +99,12 @@
 				E0433E9C2ABCF1AB00AED88D /* SoundScapeView.swift */,
 				E0433E9E2ABCFA4300AED88D /* AudioLoopView.swift */,
 				E0433E922ABA656400AED88D /* TabViewHome.swift */,
+				E04F563C2AC4D44300A7F1D1 /* PlaySettingsView.swift */,
 				E0433E7C2ABA177C00AED88D /* Assets.xcassets */,
 				E0433E982ABB371000AED88D /* chopin.mp3 */,
 				E0433E962ABB36FF00AED88D /* spanish_flea.mp3 */,
+				E0433EA72AC3659B00AED88D /* ocean_waves.mp3 */,
+				E0433EA62AC3659A00AED88D /* sound_bowls_nature.mp3 */,
 				E0433E7E2ABA177C00AED88D /* Preview Content */,
 			);
 			path = HypnoLoopsRecordTest2;
@@ -169,7 +178,9 @@
 			files = (
 				E0433E992ABB371000AED88D /* chopin.mp3 in Resources */,
 				E0433E802ABA177C00AED88D /* Preview Assets.xcassets in Resources */,
+				E0433EA82AC3659B00AED88D /* sound_bowls_nature.mp3 in Resources */,
 				E0433E972ABB36FF00AED88D /* spanish_flea.mp3 in Resources */,
+				E0433EA92AC3659B00AED88D /* ocean_waves.mp3 in Resources */,
 				E0433E7D2ABA177C00AED88D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -189,6 +200,7 @@
 				E0433E9B2ABBA55B00AED88D /* APRView.swift in Sources */,
 				E0433E8B2ABA1D2500AED88D /* RecordingsView.swift in Sources */,
 				E0433EA12ABD072900AED88D /* SpecializedAudioPlayer.swift in Sources */,
+				E04F563D2AC4D44300A7F1D1 /* PlaySettingsView.swift in Sources */,
 				E0433E872ABA17A600AED88D /* AudioManager.swift in Sources */,
 				E0433E892ABA17B700AED88D /* RecordView.swift in Sources */,
 				E0433E9F2ABCFA4300AED88D /* AudioLoopView.swift in Sources */,

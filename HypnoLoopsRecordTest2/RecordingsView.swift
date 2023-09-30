@@ -37,23 +37,12 @@ struct RecordingsView: View {
 
                     HStack {
                         
-                        if showSelectButton {
-                            Button(action: {
-                                self.selectRecording(recording)
-                                dismiss()
-                            }) {
-                                Image(systemName: "arrow.right.circle")
-                            }
-                            .foregroundColor(.blue)
-                            .padding(.trailing, 10)
-                            .buttonStyle(PlainButtonStyle())
-                        }
-                        
-                        // Button for playback
+                        //Button for playback
                         Button(action: {
                             audioManager.playRecording(url: recording)
                         }) {
-                            HStack {if audioManager.currentlyPlayingURL == recording {
+                            HStack {
+                                if audioManager.currentlyPlayingURL == recording {
                                 Image(systemName: "play.circle.fill")
                                     .foregroundColor(.blue)
                             }
@@ -62,8 +51,23 @@ struct RecordingsView: View {
                             }
                         }
                         .buttonStyle(PlainButtonStyle())  //allows buttons to work independently
+                        
+                        
+                        //Select button
+                        if showSelectButton {
+                            Button(action: {
+                                self.selectRecording(recording)
+                                dismiss()
+                            }) {
+                                Image(systemName: "arrow.left.circle") //"arrow.right.circle"
+                            }
+                            .foregroundColor(.blue)
+                            .padding(.trailing, 10)
+                            .buttonStyle(PlainButtonStyle())
+                        }
+                        
 
-                        // Button for editing the recording name
+                        //Button for editing the recording name
                         Button(action: {
                             self.recordingBeingEdited = recording
                             self.editedName = recording.deletingPathExtension().lastPathComponent

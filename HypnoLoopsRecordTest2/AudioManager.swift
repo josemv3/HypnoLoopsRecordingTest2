@@ -18,6 +18,7 @@ class AudioManager: NSObject, ObservableObject {
     @Published var isPlayingSecondAudio = false
     
     @Published var currentlyPlayingURL: URL?
+    @Published var currentlyPlayingMusicURL: URL?
     
     var onLoopShouldRestart: (() -> Void)?
 
@@ -31,7 +32,6 @@ class AudioManager: NSObject, ObservableObject {
         // Generate the recording name based on the current date and time
            let recordingName = generateRecordingName()
            let audioFilename = getDocumentsDirectory().appendingPathComponent(recordingName)
-           
         
         let settings = [
             AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
@@ -66,7 +66,6 @@ class AudioManager: NSObject, ObservableObject {
         if let url = audioRecorder?.url {
             addAndSortRecording(url: url)
         }
-
     }
     
     func addAndSortRecording(url: URL) {
@@ -85,7 +84,6 @@ class AudioManager: NSObject, ObservableObject {
     
     func startPlaying(audioURL: URL) {
         print("Started playing audio")
-        
 
         do {
             audioPlayer = try AVAudioPlayer(contentsOf: audioURL)
@@ -187,7 +185,7 @@ class AudioManager: NSObject, ObservableObject {
             
             isPlayingSecondAudio = false
             
-            let delay = (audioPlayer?.duration ?? 0) * 0.5 // Play the second version halfway through
+            let delay = (audioPlayer?.duration ?? 0) * 0.65 // Play the second version halfway through
             DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
                 self.playSecondVersionOfAudio(url: url)
             }
@@ -207,7 +205,7 @@ class AudioManager: NSObject, ObservableObject {
             audioPlayerSecond?.play()
             isPlayingSecondAudio = true
 
-            let halfDuration = (audioPlayerSecond?.duration ?? 0) * 0.5
+            let halfDuration = (audioPlayerSecond?.duration ?? 0) * 0.65  //65 is closet point go up 68, 7, 75, 78 for longer delay
             DispatchQueue.main.asyncAfter(deadline: .now() + halfDuration) {
                 self.onLoopShouldRestart?()
             }
@@ -236,6 +234,7 @@ class AudioManager: NSObject, ObservableObject {
             //musicPlayer?.numberOfLoops = -1  // Infinite loop
             musicPlayer?.play()
             musicPlayer?.volume = 0.2
+            currentlyPlayingMusicURL = url
             isPlayingMusic = true
         } catch {
             print("Could not start music: \(error)")

@@ -10,10 +10,10 @@ import SwiftUI
 struct AudioLoopView: View {
     @ObservedObject var audioManager = AudioManager()
     @State private var isLooping: Bool = false
-    let loopDuration: Double = 30.0 // seconds
+    //let loopDuration: Double = 30.0 // seconds
 
     // Assuming each loop consists of playing two recordings
-     @State private var isPlayingFirstAudio: Bool = true
+     //@State private var isPlayingFirstAudio: Bool = true
     
     var body: some View {
         Button(action: togglePlayback) {
@@ -71,17 +71,17 @@ struct AudioLoopView: View {
 //    }
 
 
-    func playLoopedAudio(for duration: Double, url: URL) {
-        let playbackEndTime = Date().addingTimeInterval(duration)
-        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
-            if !isLooping || Date() > playbackEndTime {
-                timer.invalidate()
-                audioManager.stopPlaying()
-            } else if !audioManager.isPlaying {
-                audioManager.playRecordingSpecial(url: url)
-            }
-        }
-    }
+//    func playLoopedAudio(for duration: Double, url: URL) {
+//        let playbackEndTime = Date().addingTimeInterval(duration)
+//        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
+//            if !isLooping || Date() > playbackEndTime {
+//                timer.invalidate()
+//                audioManager.stopPlaying()
+//            } else if !audioManager.isPlaying {
+//                audioManager.playRecordingSpecial(url: url)
+//            }
+//        }
+//    }
 }
 
 struct AudioLoopView_Previews: PreviewProvider {

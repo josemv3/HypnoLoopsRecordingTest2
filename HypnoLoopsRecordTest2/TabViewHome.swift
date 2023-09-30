@@ -33,7 +33,7 @@ struct HomeTabView: View {
                     Text("Affirmations")
                 }
 
-            Text("Likes")
+            SoundScapeView()
                 .tabItem {
                     Image(systemName: "heart")
                     Text("Likes")
