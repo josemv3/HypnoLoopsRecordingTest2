@@ -1,0 +1,30 @@
+{
+  "categories": [
+    {
+      "title": "Finance",
+      "affirmations": [
+        {"id": "affirmation_1", "affirmation": "I manifest abundance easily", "liked": false},
+        {"id": "affirmation_2", "affirmation": "I generate amazing sources of income", "liked": false},
+        {"id": "affirmation_3", "affirmation": "I am magnetic to money", "liked": false},
+        {"id": "affirmation_4", "affirmation": "I feel abundance coming to me now", "liked": false},
+        {"id": "affirmation_5", "affirmation": "I make money easily", "liked": false},
+        {"id": "affirmation_6", "affirmation": "I allow wealth to flow into my life", "liked": false},
+        {"id": "affirmation_7", "affirmation": "I am worthy of abundance", "liked": false},
+        {"id": "affirmation_8", "affirmation": "I am magnetic to wealth", "liked": false}
+      ]
+    },
+    {
+      "title": "Grounding",
+      "affirmations": [
+        {"id": "affirmation_9", "affirmation": "God supports me daily", "liked": false},
+        {"id": "affirmation_10", "affirmation": "The Universe supports me daily", "liked": false},
+        {"id": "affirmation_11", "affirmation": "I am worthy of more", "liked": false},
+        {"id": "affirmation_12", "affirmation": "My energy is always attracting blessings", "liked": false},
+        {"id": "affirmation_13", "affirmation": "I show up for myself everyday", "liked": false},
+        {"id": "affirmation_14", "affirmation": "I will show up for myself today", "liked": false},
+        {"id": "affirmation_15", "affirmation": "I focus my energy on solutions", "liked": false},
+        {"id": "affirmation_16", "affirmation": "I love you, you are safe", "liked": false}
+      ]
+    }
+  ]
+}

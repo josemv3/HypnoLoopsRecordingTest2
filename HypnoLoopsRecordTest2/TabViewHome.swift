@@ -9,6 +9,7 @@ import SwiftUI
 
 struct HomeTabView: View {
     @ObservedObject var audioManager: AudioManager
+    @ObservedObject var viewModel: CategoryViewModel
     
     var body: some View {
         TabView {
@@ -27,13 +28,13 @@ struct HomeTabView: View {
                     Text("Record")
                 }
 
-            AudioLoopView(audioManager: audioManager)
+            CategoryView(viewModel: viewModel)
                 .tabItem {
                     Image(systemName: "square.grid.2x2")
                     Text("Affirmations")
                 }
 
-            SoundScapeView()
+            LikedAffirmationView(viewModel: viewModel)
                 .tabItem {
                     Image(systemName: "heart")
                     Text("Likes")
@@ -49,8 +50,8 @@ struct HomeTabView: View {
     }
 }
 
-struct TabView_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeTabView(audioManager: AudioManager())
-    }
-}
+//struct TabView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        HomeTabView(audioManager: AudioManager())
+//    }
+//}

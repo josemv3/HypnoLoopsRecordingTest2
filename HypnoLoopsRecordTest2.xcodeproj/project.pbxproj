@@ -29,6 +29,13 @@
 		E0433EA92AC3659B00AED88D /* ocean_waves.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E0433EA72AC3659B00AED88D /* ocean_waves.mp3 */; };
 		E04F563D2AC4D44300A7F1D1 /* PlaySettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04F563C2AC4D44300A7F1D1 /* PlaySettingsView.swift */; };
 		E0B94F342AC8F265003D82BD /* ocean15.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E0B94F332AC8F265003D82BD /* ocean15.mp3 */; };
+		E0B94F362ACA57D2003D82BD /* Affirmations.json in Resources */ = {isa = PBXBuildFile; fileRef = E0B94F352ACA57D1003D82BD /* Affirmations.json */; };
+		E0B94F382ACA5EDF003D82BD /* CategoryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B94F372ACA5EDF003D82BD /* CategoryData.swift */; };
+		E0B94F3A2ACA5F01003D82BD /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B94F392ACA5F01003D82BD /* CategoryViewModel.swift */; };
+		E0B94F3C2ACA5F73003D82BD /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B94F3B2ACA5F73003D82BD /* CategoryView.swift */; };
+		E0B94F422ACA89EB003D82BD /* CategoryOnlyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B94F412ACA89EB003D82BD /* CategoryOnlyView.swift */; };
+		E0B94F442ACA93A6003D82BD /* AffirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B94F432ACA93A6003D82BD /* AffirmationView.swift */; };
+		E0B94F462ACA9D80003D82BD /* LikedAffirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B94F452ACA9D80003D82BD /* LikedAffirmationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +62,13 @@
 		E0433EA72AC3659B00AED88D /* ocean_waves.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ocean_waves.mp3; sourceTree = "<group>"; };
 		E04F563C2AC4D44300A7F1D1 /* PlaySettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaySettingsView.swift; sourceTree = "<group>"; };
 		E0B94F332AC8F265003D82BD /* ocean15.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ocean15.mp3; sourceTree = "<group>"; };
+		E0B94F352ACA57D1003D82BD /* Affirmations.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Affirmations.json; sourceTree = "<group>"; };
+		E0B94F372ACA5EDF003D82BD /* CategoryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryData.swift; sourceTree = "<group>"; };
+		E0B94F392ACA5F01003D82BD /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
+		E0B94F3B2ACA5F73003D82BD /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
+		E0B94F412ACA89EB003D82BD /* CategoryOnlyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryOnlyView.swift; sourceTree = "<group>"; };
+		E0B94F432ACA93A6003D82BD /* AffirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AffirmationView.swift; sourceTree = "<group>"; };
+		E0B94F452ACA9D80003D82BD /* LikedAffirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedAffirmationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +116,13 @@
 				E0433E9E2ABCFA4300AED88D /* AudioLoopView.swift */,
 				E0433E922ABA656400AED88D /* TabViewHome.swift */,
 				E04F563C2AC4D44300A7F1D1 /* PlaySettingsView.swift */,
+				E0B94F372ACA5EDF003D82BD /* CategoryData.swift */,
+				E0B94F392ACA5F01003D82BD /* CategoryViewModel.swift */,
+				E0B94F412ACA89EB003D82BD /* CategoryOnlyView.swift */,
+				E0B94F3B2ACA5F73003D82BD /* CategoryView.swift */,
+				E0B94F432ACA93A6003D82BD /* AffirmationView.swift */,
+				E0B94F452ACA9D80003D82BD /* LikedAffirmationView.swift */,
+				E0B94F352ACA57D1003D82BD /* Affirmations.json */,
 				E0433E7C2ABA177C00AED88D /* Assets.xcassets */,
 				E0433E982ABB371000AED88D /* chopin.mp3 */,
 				E0433E962ABB36FF00AED88D /* spanish_flea.mp3 */,
@@ -183,6 +204,7 @@
 				E0433E802ABA177C00AED88D /* Preview Assets.xcassets in Resources */,
 				E0433EA82AC3659B00AED88D /* sound_bowls_nature.mp3 in Resources */,
 				E0433E972ABB36FF00AED88D /* spanish_flea.mp3 in Resources */,
+				E0B94F362ACA57D2003D82BD /* Affirmations.json in Resources */,
 				E0B94F342AC8F265003D82BD /* ocean15.mp3 in Resources */,
 				E0433EA92AC3659B00AED88D /* ocean_waves.mp3 in Resources */,
 				E0433E7D2ABA177C00AED88D /* Assets.xcassets in Resources */,
@@ -197,17 +219,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				E0433E8D2ABA4EEC00AED88D /* RecordView2.swift in Sources */,
+				E0B94F462ACA9D80003D82BD /* LikedAffirmationView.swift in Sources */,
 				E0433E932ABA656400AED88D /* TabViewHome.swift in Sources */,
 				E0433E8F2ABA4F5700AED88D /* AnimationTest.swift in Sources */,
 				E0433E9D2ABCF1AB00AED88D /* SoundScapeView.swift in Sources */,
 				E0433E912ABA651800AED88D /* PlayView.swift in Sources */,
+				E0B94F382ACA5EDF003D82BD /* CategoryData.swift in Sources */,
 				E0433E9B2ABBA55B00AED88D /* APRView.swift in Sources */,
 				E0433E8B2ABA1D2500AED88D /* RecordingsView.swift in Sources */,
+				E0B94F3C2ACA5F73003D82BD /* CategoryView.swift in Sources */,
 				E0433EA12ABD072900AED88D /* SpecializedAudioPlayer.swift in Sources */,
+				E0B94F3A2ACA5F01003D82BD /* CategoryViewModel.swift in Sources */,
 				E04F563D2AC4D44300A7F1D1 /* PlaySettingsView.swift in Sources */,
 				E0433E872ABA17A600AED88D /* AudioManager.swift in Sources */,
 				E0433E892ABA17B700AED88D /* RecordView.swift in Sources */,
 				E0433E9F2ABCFA4300AED88D /* AudioLoopView.swift in Sources */,
+				E0B94F442ACA93A6003D82BD /* AffirmationView.swift in Sources */,
+				E0B94F422ACA89EB003D82BD /* CategoryOnlyView.swift in Sources */,
 				E0433E952ABA97ED00AED88D /* PlayView2.swift in Sources */,
 				E0433E7B2ABA177B00AED88D /* ContentView.swift in Sources */,
 				E0433E792ABA177B00AED88D /* HypnoLoopsRecordTest2App.swift in Sources */,
