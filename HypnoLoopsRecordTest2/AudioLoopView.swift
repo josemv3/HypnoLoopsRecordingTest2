@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AudioLoopView: View {
-    @ObservedObject var audioManager = AudioManager()
+    @ObservedObject var audioManager: AudioManager
     @State private var isLooping: Bool = false
     //let loopDuration: Double = 30.0 // seconds
 
@@ -25,17 +25,22 @@ struct AudioLoopView: View {
         isLooping.toggle()
         if isLooping {
             startLooping()
-            if let musicURL = Bundle.main.url(forResource: "spanish_flea", withExtension: "mp3") {
-                // Use musicURL here
+            if let musicURL = Bundle.main.url(forResource: "ocean15", withExtension: "mp3") {
                 audioManager.startMusic(url: musicURL)
             }
-            
         } else {
-            audioManager.stopMusic()
-            audioManager.stopPlaying()
-            audioManager.onLoopShouldRestart = nil
+            stopLooping()
         }
     }
+
+    func stopLooping() {
+        audioManager.stopMusic()
+        audioManager.stopPlaying()
+        audioManager.onLoopShouldRestart = nil
+        audioManager.audioPlayer = nil
+        audioManager.audioPlayerSecond = nil
+    }
+
 
 
     func startLooping() {

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SoundScapeView: View {
     @Environment(\.dismiss) var dismiss
-    let mp3Files = ["chopin", "spanish_flea", "ocean_waves", "sound_bowls_nature"] // The names of your mp3 files
+    let mp3Files = ["chopin", "spanish_flea", "ocean_waves", "sound_bowls_nature", "ocean15"] // The names of your mp3 files
     //@State private var selectedScape: String?
     @ObservedObject var audioManager = AudioManager()
     var onSelect: ((URL) -> Void)?
@@ -56,27 +56,7 @@ struct SoundScapeView: View {
                                 }
                             }
                             .buttonStyle(PlainButtonStyle())  //allows buttons to work independently
-                            
-                            
-                            //OG Play button
-//                            Button(action: {
-//                                if let musicURL = Bundle.main.url(forResource: item, withExtension: "mp3") {
-//                                    if audioManager.isPlayingMusic == true {
-//                                        audioManager.stopMusic()
-//                                    } else {
-//                                        audioManager.startMusic(url: musicURL)
-//                                    }
-//                                }
-//                                print(audioManager.isPlayingMusic)
-//                            }) {
-//                                let newURl = audioManager.currentlyPlayingMusicURL
-//                                Image(systemName: audioManager.isPlayingMusic ? "stop.fill" : "play.fill")
-//                            }
-//                            .padding(.trailing, 10)
-//                            .foregroundColor(.orange)
-//                            .buttonStyle(PlainButtonStyle())
-                            
-                            //Text(makeSongName(name: item))
+                        
                             Spacer()
                             
                             Button(action: {

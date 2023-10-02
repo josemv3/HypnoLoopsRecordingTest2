@@ -25,8 +25,8 @@ struct AnimationTest: View {
     var stopSymbol: String
     
     @State private var isLooping: Bool = false
-    //let loopDuration: Double = 30.0 // seconds
-    //@State private var isPlayingFirstAudio: Bool = true
+    let loopDuration: Double = 30.0 // seconds
+    @State private var isPlayingFirstAudio: Bool = true
     
     var body: some View {
         
@@ -72,6 +72,7 @@ struct AnimationTest: View {
                 self.animate = false
                 print("onChange", animate)
                 toggleVisualAnimation()
+                stopAudio()
             }
         }
         .onChange(of: animate) { newValue in
@@ -93,7 +94,7 @@ struct AnimationTest: View {
             if audioManager.isPlayingMusic {
                 //audioManager.stopPlaying()
                 //audioManager.stopMusic()
-                togglePlayback()
+                stopAudio()
                 animate = false
             } else {
 //                let playbackURL = audioURLToPlay ?? audioManager.recordings.last
@@ -105,34 +106,38 @@ struct AnimationTest: View {
 //                if let mURL = musicURL {
 //                    audioManager.startMusic(url: musicURL!)
 //                }
-                togglePlayback()
+                startAudio()
                 animate = true
                 print("MUSIC URL", musicURLToPlay)
             }
         }
     }
     
-    func togglePlayback() {
-        isLooping.toggle()
+    func startAudio() {
+        isLooping = true
         if isLooping {
             startLooping()
             if let musicURL = musicURLToPlay {
                 // Use musicURL here
                 audioManager.startMusic(url: musicURL)
             }
-            
-        } else {
-            audioManager.stopMusic()
-            audioManager.stopPlaying()
-            audioManager.onLoopShouldRestart = nil
         }
     }
 
+    func stopAudio() {
+        isLooping = false
+        audioManager.stopMusic()
+                    audioManager.stopPlaying()
+                    audioManager.onLoopShouldRestart = nil
+                    audioManager.audioPlayerSecond = nil
+                    audioManager.audioPlayer = nil
+
+    }
 
     func startLooping() {
         guard !audioManager.recordings.isEmpty else { return }
         let defaultLoop =  audioManager.recordings.first!
-        let loopAudioURL = musicURLToPlay ?? defaultLoop
+        let loopAudioURL = audioURLToPlay ?? defaultLoop
         
         audioManager.onLoopShouldRestart = {
             self.startLooping()
@@ -140,6 +145,8 @@ struct AnimationTest: View {
         
         audioManager.playRecordingSpecial(url: loopAudioURL)
     }
+    
+ 
 
     // This function will handle the visual animations.
     func toggleVisualAnimation() {

@@ -48,7 +48,7 @@ struct RecordView2: View {
                     .frame(width: 300, height: 100, alignment: .center)
                 
                 ZStack {
-                    AnimationTest(audioManager: audioManager, audioURLToPlay: nil, startSymbol: "mic.fill", stopSymbol: "mic")
+                    AnimationTest(audioManager: audioManager, startSymbol: "mic.fill", stopSymbol: "mic")
                    
                     //APRView(viewModel: viewModel)
                               

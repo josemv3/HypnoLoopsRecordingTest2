@@ -35,9 +35,8 @@ struct PlayView2: View {
                     .padding(5)
                 
                 ZStack {
-                    AnimationTest(audioManager: audioManager, audioURLToPlay: selectedRecording, musicURLToPlay: selectedSoundScape ,startSymbol: "stop.fill", stopSymbol: "play" )
+                    AnimationTest(audioManager: audioManager, audioURLToPlay: selectedRecording, musicURLToPlay: selectedSoundScape,  startSymbol: "stop.fill", stopSymbol: "play" )
                 }
-                
                 
                 HStack {
                     Button(action: {
@@ -51,9 +50,9 @@ struct PlayView2: View {
                    
                    Spacer()
                     
-                    Text("7:21") //Need binding for time
+                    Text(audioManager.timeRemaining.stringFromTimeInterval())
                     Text("/")
-                    Text("21:00")
+                    Text(audioManager.musicDuration.stringFromTimeInterval())
                     
                     Spacer()
                     
@@ -70,8 +69,6 @@ struct PlayView2: View {
                 .frame(width: 300, height: 50)
                 
                 VStack(spacing: 10) {
-
-                    
                     //Soundscape Button
                     HStack {
                         Text("Sounds: \(selectedSoundScape?.deletingPathExtension().lastPathComponent ?? "None")" )
@@ -114,7 +111,7 @@ struct PlayView2: View {
         .sheet(item: $activeSheet) { item in
             switch item {
             case .settings:
-                PlaySettingsView()
+                PlaySettingsView(audioManager: audioManager)
                     .presentationDetents(
                         [.medium, .large],
                         selection: $settingsDetent
@@ -122,6 +119,7 @@ struct PlayView2: View {
             case .soundScape:
                 SoundScapeView() { url in
                     self.selectedSoundScape = url
+                    //audioManager.musicURLToPlay = url
                 }
                     .presentationDetents(
                         [.medium, .large],
@@ -130,6 +128,7 @@ struct PlayView2: View {
             case .recordings:
                 RecordingsView(audioManager: audioManager, showSelectButton: true) { url in
                     self.selectedRecording = url
+                    //audioManager.audioURLToPlay = url
                 }
                 .presentationDetents(
                     [.medium, .large],
@@ -164,4 +163,13 @@ struct PlayView2_Previews: PreviewProvider {
           //PlayView2(audioManager: AudioManager(), selectedRecording: $selectedRecordingPreview)
           PlayView2(audioManager: AudioManager())
       }
+}
+
+extension TimeInterval {
+    func stringFromTimeInterval() -> String {
+        let time = NSInteger(self)
+        let seconds = time % 60
+        let minutes = (time / 60) % 60
+        return String(format: "%0.2d:%0.2d", minutes, seconds)
+    }
 }

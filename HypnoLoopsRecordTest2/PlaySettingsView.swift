@@ -8,61 +8,68 @@
 import SwiftUI
 
 struct PlaySettingsView: View {
+    @ObservedObject var audioManager: AudioManager
+    
     @State private var reverbValue: Double = 0
     @State private var volumeMainValue: Double = 0
     @State private var volumeSecondValue: Double = 0
-    @State private var loopSpeedValue: Double = 0
+    
     
     var body: some View {
         List {
             Section("Playback Settings") {
+
+                //Section("Loop Speed") {
                 HStack {
-                    Text("Reverb")
+                    Text("Inner Loop: \(audioManager.delayFactor2, specifier: "%.2f")")
                         .font(.subheadline)
                         .padding()
                         .foregroundColor(.black)
-                    Slider(value: $reverbValue, in: 0 ... 50, step: 5) {
+                    Slider(value: $audioManager.delayFactor2, in: 0.02...0.20, step: 0.02) {
                         Text("")
                     }
-                    
+                    .onChange(of: audioManager.delayFactor2) { newValue in
+                                        audioManager.adjustRestartDelay(newValue)
+                                    }
                 }
-                //Section("Loop Speed") {
-                    
-                    HStack {
-                        Text("Speed")
-                            .font(.subheadline)
-                            .padding()
-                            .foregroundColor(.black)
-                        Slider(value: $loopSpeedValue, in: 0 ... 50, step: 5) {
-                            Text("")
-                        }
-                        
-                    }
-//                }
-//                .font(.caption)
-//                .padding(.leading, 5)
                 
-            
+                HStack {
+                    Text("Outer Loop: \(audioManager.delayFactor, specifier: "%.2f")")
+                        .font(.subheadline)
+                        .padding()
+                        .foregroundColor(.black)
+                    Slider(value: $audioManager.delayFactor, in: 0.02...0.20, step: 0.02) {
+                        Text("")
+                    }
+                    .onChange(of: audioManager.delayFactor) { newValue in
+                        audioManager.adjustDelay(newValue) // This method should handle rescheduling the DispatchWorkItem with the new delay
+                    }
+                }
+
             }
             
             Section("Loop Volume") {
                 HStack {
-                    Text("Volume 1")
+                    Text("Music: \(Int(audioManager.musicVolume * 100))%")
                         .font(.subheadline)
                         .padding()
                         .foregroundColor(.black)
-                    Slider(value: $volumeMainValue, in: 0 ... 50, step: 5) {
-                        Text("")
-                    }
+                    Slider(value: $audioManager.musicVolume, in: 0...1)
+                                    .onChange(of: audioManager.musicVolume) { newValue in
+                                        audioManager.musicPlayer?.volume = newValue
+                                    }
                     
                 }
                 HStack {
-                    Text("Volume 2")
+                    Text("Loop: \(Int(audioManager.mainVocalsAudio * 100))%")
                         .font(.subheadline)
                         .padding()
                         .foregroundColor(.black)
-                    Slider(value: $volumeSecondValue, in: 0 ... 50, step: 5) {
+                    Slider(value: $audioManager.mainVocalsAudio, in: 0.0 ... 1.0, step: 0.1) {
                         Text("")
+                    }
+                    .onChange(of: audioManager.mainVocalsAudio) { newValue in
+                        audioManager.audioPlayer?.volume = newValue
                     }
                     
                 }
@@ -79,6 +86,6 @@ struct PlaySettingsView: View {
 
 struct PlaySettingsView_Previews: PreviewProvider {
     static var previews: some View {
-        PlaySettingsView()
+        PlaySettingsView(audioManager: AudioManager())
     }
 }
