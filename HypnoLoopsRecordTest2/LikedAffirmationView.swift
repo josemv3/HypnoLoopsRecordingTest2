@@ -6,13 +6,17 @@
 //
 
 import SwiftUI
+import Combine
 
 struct LikedAffirmationView: View {
     @ObservedObject var viewModel: CategoryViewModel
     
     var body: some View {
         List(viewModel.likedAffirmations) { affirmation in
-            AffirmationRow(affirmation: affirmation)
+            AffirmationRow(viewModel: viewModel, affirmation: affirmation)
+        }
+        .onAppear {
+            print("Liked affirmations view appeared with \(viewModel.likedAffirmations.count) liked affirmations")
         }
         .navigationTitle("Liked Affirmations")
     }

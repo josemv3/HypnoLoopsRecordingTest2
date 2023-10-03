@@ -6,21 +6,32 @@
 //
 
 import SwiftUI
+import Combine
 
 struct CategoryView: View {
     @ObservedObject var viewModel: CategoryViewModel
 
         var body: some View {
             NavigationView {
-                VStack {
-                    ForEach(viewModel.categories) { category in
-                        let lowercase = category.title.localizedLowercase
-        
-                        NavigationLink(destination: AffirmationView(category: category)) {
-                            CategoryOnlyView(imageName: lowercase, categoryName: category.title)
-                                .padding()
+                ZStack {
+                    Image("oceanBG")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        .edgesIgnoringSafeArea(.all)
+                    
+                    ScrollView {
+                        VStack {
+                            ForEach(viewModel.categories) { category in
+                                let lowercase = category.title.localizedLowercase
+                
+                                NavigationLink(destination: AffirmationView(viewModel: viewModel, category: category)) {
+                                    CategoryOnlyView(imageName: lowercase, categoryName: category.title)
+                                        .padding()
+                                }
+                                
+                            }
                         }
-                        
                     }
                 }
 //                List {
@@ -34,6 +45,7 @@ struct CategoryView: View {
 //                }
 //                .navigationTitle("Categories")
             }
+            
         }
     }
 

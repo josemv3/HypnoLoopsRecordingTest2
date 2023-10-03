@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 class Affirmation: Identifiable, ObservableObject, Decodable {
     let id: String

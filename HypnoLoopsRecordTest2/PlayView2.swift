@@ -143,6 +143,10 @@ struct PlayView2: View {
                     selectedRecording = recording
                 }
             }
+            if selectedSoundScape == nil {
+                let musicURL = Bundle.main.url(forResource: "ocean_waves", withExtension: "mp3")
+                selectedSoundScape = musicURL
+            }
 
         }
     }
@@ -154,6 +158,7 @@ struct PlayView2: View {
         }
         .padding(.trailing, 5)
     }
+
 }
 
 struct PlayView2_Previews: PreviewProvider {

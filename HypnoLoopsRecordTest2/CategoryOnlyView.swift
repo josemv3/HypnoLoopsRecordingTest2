@@ -15,14 +15,16 @@ struct CategoryOnlyView: View {
        ZStack {
            Image(imageName)
                .resizable()
-               .aspectRatio(contentMode: .fit)
+               .aspectRatio(contentMode: .fill)
                //.foregroundColor(.red)
            
            VStack {
                Spacer()
-               Text(categoryName)
+               Text(categoryName.replacingOccurrences(of: "_", with: " "))
+               
                    .foregroundColor(.white)
                    .font(.headline)
+                   .padding(.bottom, 30)
            }
        }
        .frame(width: 300, height: 200)
