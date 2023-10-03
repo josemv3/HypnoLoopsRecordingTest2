@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct PlayView2: View {
+struct PlayView: View {
     @ObservedObject var audioManager: AudioManager
     @State private var textFieldInput: String = "Record name"
     
@@ -35,7 +35,7 @@ struct PlayView2: View {
                     .padding(5)
                 
                 ZStack {
-                    AnimationTest(audioManager: audioManager, audioURLToPlay: selectedRecording, musicURLToPlay: selectedSoundScape,  startSymbol: "stop.fill", stopSymbol: "play" )
+                    MainButtonAnimationView(audioManager: audioManager, audioURLToPlay: selectedRecording, musicURLToPlay: selectedSoundScape,  startSymbol: "stop.fill", stopSymbol: "play" )
                 }
                 
                 HStack {
@@ -71,7 +71,7 @@ struct PlayView2: View {
                 VStack(spacing: 10) {
                     //Soundscape Button
                     HStack {
-                        Text("Sounds: \(selectedSoundScape?.deletingPathExtension().lastPathComponent ?? "None")" )
+                        Text("Sounds: \(selectedSoundScape?.deletingPathExtension().lastPathComponent.capitalized.replacingOccurrences(of: "_", with: " ") ?? "None")" )
                             .foregroundColor(.white)
                             .frame(width: 300, height: 40)
                             .padding(.leading, 3)
@@ -88,8 +88,6 @@ struct PlayView2: View {
                     
                     // Recording Button
                     HStack {
-//                        Text("Recording:")
-//                            .foregroundColor(.white)
                         
                         Text("Recording: \(selectedRecording?.deletingPathExtension().lastPathComponent ?? "None")")
                             .foregroundColor(.white)
@@ -134,6 +132,8 @@ struct PlayView2: View {
                     [.medium, .large],
                     selection: $settingsDetent
                 )
+            case .affirmation:
+                Text("Affirmation")
             }
         }
         
@@ -166,7 +166,7 @@ struct PlayView2_Previews: PreviewProvider {
 
       static var previews: some View {
           //PlayView2(audioManager: AudioManager(), selectedRecording: $selectedRecordingPreview)
-          PlayView2(audioManager: AudioManager())
+          PlayView(audioManager: AudioManager())
       }
 }
 

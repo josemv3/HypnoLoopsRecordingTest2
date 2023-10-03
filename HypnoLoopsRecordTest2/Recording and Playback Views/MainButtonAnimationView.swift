@@ -9,7 +9,7 @@ import SwiftUI
 import Combine
 
 
-struct AnimationTest: View {
+struct MainButtonAnimationView: View {
     @ObservedObject var audioManager: AudioManager
     
     
@@ -52,10 +52,10 @@ struct AnimationTest: View {
             
             Circle()
                 .fill(Color("ringDarkBlue"))
-                //.scaleEffect(pulseSmallCircle ? 1.2 : 1.0)
+            //.scaleEffect(pulseSmallCircle ? 1.2 : 1.0)
                 .frame(width: 140, height: 140)
                 .shadow(color: .black.opacity(0.39), radius: 3, x: 5, y: 5)
-           
+            
             Button(action: {
                 
                 handleAudioControl()
@@ -92,20 +92,10 @@ struct AnimationTest: View {
             }
         } else if startSymbol == "stop.fill" {
             if audioManager.isPlayingMusic {
-                //audioManager.stopPlaying()
-                //audioManager.stopMusic()
                 stopAudio()
                 animate = false
+                
             } else {
-//                let playbackURL = audioURLToPlay ?? audioManager.recordings.last
-//                if let url = playbackURL {
-//                    audioManager.startPlaying(audioURL: url)
-//                    animate = true
-//                }
-                //let musicURL = musicURLToPlay
-//                if let mURL = musicURL {
-//                    audioManager.startMusic(url: musicURL!)
-//                }
                 startAudio()
                 animate = true
                 print("MUSIC URL", musicURLToPlay)
@@ -123,17 +113,17 @@ struct AnimationTest: View {
             }
         }
     }
-
+    
     func stopAudio() {
         isLooping = false
         audioManager.stopMusic()
-                    audioManager.stopPlaying()
-                    audioManager.onLoopShouldRestart = nil
-                    audioManager.audioPlayerSecond = nil
-                    audioManager.audioPlayer = nil
-
+        audioManager.stopPlaying()
+        audioManager.onLoopShouldRestart = nil
+        audioManager.audioPlayerSecond = nil
+        audioManager.audioPlayer = nil
+        
     }
-
+    
     func startLooping() {
         guard !audioManager.recordings.isEmpty else { return }
         let defaultLoop =  audioManager.recordings.first!
@@ -146,8 +136,8 @@ struct AnimationTest: View {
         audioManager.playRecordingSpecial(url: loopAudioURL)
     }
     
- 
-
+    
+    
     // This function will handle the visual animations.
     func toggleVisualAnimation() {
         if !animate {
@@ -162,92 +152,14 @@ struct AnimationTest: View {
             withAnimation(Animation.easeInOut(duration: 1.0).repeatForever(autoreverses: true).delay(0.2)) {
                 scale1 = 1.2
             }
-
+            
             withAnimation(Animation.easeInOut(duration: 1.0).repeatForever(autoreverses: true).delay(0.4)) {
                 scale2 = 1.2
             }
-
+            
             withAnimation(Animation.easeInOut(duration: 1.0).repeatForever(autoreverses: true).delay(0.6)) {
                 scale3 = 1.2
             }
         }
     }
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-//og toggle:
-//        func toggleAnimation() {
-////            if animate == true {
-////                animate = false
-////            }
-//            // Check if it's the "mic" symbol and handle audio recording.
-//             if startSymbol == "mic.fill" {
-//                 //pulseSmallCircle = false
-//
-//                 if audioManager.isRecording {
-//                     audioManager.stopRecording()
-//                     animate = false
-//
-//                 } else {
-//                     audioManager.startRecording()
-//                     animate = true
-//                 }
-//             }
-//             // Check if it's the "play" symbol and handle audio playing.
-//            else if startSymbol == "stop.fill" {
-//                if audioManager.isPlaying {
-//                    audioManager.stopPlaying()
-//                    animate = false
-//                    //toggleAnimation()
-//                } else {
-//                    // Use the specific URL if available, otherwise fallback to the last recording.
-//                    let playbackURL = audioURLToPlay ?? audioManager.recordings.last
-//                    if let url = playbackURL {
-//                        audioManager.startPlaying(audioURL: url)
-//                        animate = true
-//                    }
-//                }
-//            }
-//
-//            if !animate {
-//                // Stop the animation
-//                withAnimation(Animation.default) {
-//                    scale1 = 1.0
-//                    scale2 = 1.0
-//                    scale3 = 1.0
-//                }
-//            } else {
-//                // Start the animation
-//                withAnimation(Animation.easeInOut(duration: 1.0).repeatForever(autoreverses: true).delay(0.2)) {
-//                    scale1 = 1.2
-//                }
-//
-//                withAnimation(Animation.easeInOut(duration: 1.0).repeatForever(autoreverses: true).delay(0.4)) {
-//                    scale2 = 1.2
-//                }
-//
-//                withAnimation(Animation.easeInOut(duration: 1.0).repeatForever(autoreverses: true).delay(0.6)) {
-//                    scale3 = 1.2
-//                }
-//            }
-//            //animate.toggle()
-//        }
 }
-
-
-
-//struct AnimationTest_Previews: PreviewProvider {
-//    static var previews: some View {
-//        AnimationTest(startSymbol: "play.fill", stopSymbol: "play")
-//    }
-//}

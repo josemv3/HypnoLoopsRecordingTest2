@@ -187,7 +187,7 @@ class AudioManager: NSObject, ObservableObject {
     }
     
     //Specialized Player
-    
+    //This is the first recrding that will play
     func playRecordingSpecial(url: URL) {
         do {
             if isPlaying {
@@ -226,7 +226,7 @@ class AudioManager: NSObject, ObservableObject {
         }
     }
 
-
+    //PLay Second version of audio at 50% volume
     func playSecondVersionOfAudio(url: URL) {
         do {
             audioPlayerSecond = try AVAudioPlayer(contentsOf: url)
@@ -239,8 +239,8 @@ class AudioManager: NSObject, ObservableObject {
                     self.onLoopShouldRestart?()
                 }
 
-                //Actually outer loop for restart of first audio?
-            let halfDuration = (audioPlayerSecond?.duration ?? 0) * (1.0 - delayFactor)  //second audio at 50% lower volume
+                //Outer loop for restart of first audio (delayFactor):
+            let halfDuration = (audioPlayerSecond?.duration ?? 0) * (1.0 - delayFactor)
             print("audioPlayer1.duration", audioPlayer?.duration)
             print("audioPlayerSecond.duration", audioPlayerSecond?.duration)
             print("halfDuration", halfDuration)
@@ -324,6 +324,7 @@ class AudioManager: NSObject, ObservableObject {
         musicProgressTimer = nil
     }
     
+    //Restart DispatchQue when loop timing is toggled in settings
     func adjustDelay(_ newDelayFactor: Double) {
         // Assuming audioPlayer is currently playing
         guard let audioPlayer = audioPlayer, audioPlayer.isPlaying else { return }
@@ -341,6 +342,7 @@ class AudioManager: NSObject, ObservableObject {
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + newDelay, execute: playSecondWorkItem!)
     }
+    
     
     func adjustRestartDelay(_ newDelayFactor: Double) {
             // Check if audioPlayerSecond is currently playing
@@ -377,20 +379,10 @@ extension AudioManager: AVAudioPlayerDelegate {
                    print("MusicPlayerAM Trigger", isPlayingMusic)
                    isPlayingMusic = false
                }
-        
-//        if player === musicPlayer, isRepeatModeOn {
-//                   // If the finished player is musicPlayer and repeat mode is on, restart the music
-//            self.startMusic(url: currentlyPlayingURL!)
-//            self.startLooping()
-//               }
-        
+
         isPlaying = false
         //currentlyPlayingURL = nil
-        
-        // If it's the first audio player (`audioPlayer`) that's done playing, do nothing since the second one might be playing.
     }
-
-
 }
 
 

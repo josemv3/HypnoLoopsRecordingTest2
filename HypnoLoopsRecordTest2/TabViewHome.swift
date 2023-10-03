@@ -14,7 +14,7 @@ struct HomeTabView: View {
     
     var body: some View {
         TabView {
-            PlayView2(audioManager: audioManager)
+            PlayView(audioManager: audioManager)
                 //.padding(.top, 80)
                 .tabItem {
                     Image(systemName: "house")
@@ -22,7 +22,7 @@ struct HomeTabView: View {
                 }
                 
 
-            RecordView2(audioManager: audioManager)
+            RecordView(audioManager: audioManager, viewModel: viewModel)
                 //.padding(.top, 80)
                 .tabItem {
                     Image(systemName: "mic")
@@ -37,7 +37,7 @@ struct HomeTabView: View {
                 //.toolbar(.automatic, for: .tabBar)
                 //.toolbarBackground(Color.blue.opacity(0.2), for: .tabBar)
 
-            LikedAffirmationView(viewModel: viewModel)
+            EmptyView()
                 .tabItem {
                     Image(systemName: "heart")
                     Text("Likes")

@@ -23,7 +23,7 @@ struct CategoryView: View {
                     ScrollView {
                         VStack {
                             ForEach(viewModel.categories) { category in
-                                let lowercase = category.title.localizedLowercase
+                                let lowercase = category.title.lowercased()
                 
                                 NavigationLink(destination: AffirmationView(viewModel: viewModel, category: category)) {
                                     CategoryOnlyView(imageName: lowercase, categoryName: category.title)

@@ -8,29 +8,24 @@
 import SwiftUI
 
 enum ActiveSheet: Identifiable {
-    case settings, soundScape, recordings
+    case settings, soundScape, recordings, affirmation
 
     var id: Int {
         hashValue
     }
 }
 
-struct RecordView2: View {
+struct RecordView: View {
     @ObservedObject var audioManager: AudioManager
+    @ObservedObject var viewModel: CategoryViewModel
     @State private var textFieldInput: String = "Record name"
  
     @State private var activeSheet: ActiveSheet?
     @State private var settingsDetent = PresentationDetent.medium
     
-//    let viewModel: AnimationTestViewModel
-//
-//      init(audioManager: AudioManager) {
-//          self.audioManager = audioManager
-//          self.viewModel = AnimationTestViewModel(audioManager: audioManager)
-//          self.viewModel.currentSymbol = "mic.fill"
-//      }
- 
-    
+    @State private var selectedAffirmation: String?
+
+
     var body: some View {
     
         ZStack {
@@ -48,10 +43,7 @@ struct RecordView2: View {
                     .frame(width: 300, height: 100, alignment: .center)
                 
                 ZStack {
-                    AnimationTest(audioManager: audioManager, startSymbol: "mic.fill", stopSymbol: "mic")
-                   
-                    //APRView(viewModel: viewModel)
-                              
+                    MainButtonAnimationView(audioManager: audioManager, startSymbol: "mic.fill", stopSymbol: "mic")
                 }
                 
                 //Circular Button
@@ -80,7 +72,11 @@ struct RecordView2: View {
                 )
                 .padding(.vertical, 30)
                 
-                Text("Your chosen affirmation here...")
+                Text(selectedAffirmation ?? "No Affirmation Selected")
+
+                    .onTapGesture {
+                        self.activeSheet = .affirmation
+                    }
                     .foregroundColor(.white)
                     .opacity(0.8)
                 
@@ -124,6 +120,13 @@ struct RecordView2: View {
                 RecordingsView(audioManager: audioManager)
                     .presentationDetents(
                         [.medium, .large],
+                        selection: $settingsDetent
+                    )
+            case .affirmation:
+                LikedAffirmationView(viewModel: viewModel, selectedAffirmation: $selectedAffirmation)
+                    .padding(.top, 10)
+                    .presentationDetents(
+                        [.large],
                         selection: $settingsDetent
                     )
             }
