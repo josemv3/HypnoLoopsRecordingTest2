@@ -120,8 +120,8 @@
 		E0B94F472ACC92BE003D82BD /* Category and Affirmations */ = {
 			isa = PBXGroup;
 			children = (
-				E0B94F372ACA5EDF003D82BD /* CategoryData.swift */,
 				E0B94F392ACA5F01003D82BD /* CategoryViewModel.swift */,
+				E0B94F372ACA5EDF003D82BD /* CategoryData.swift */,
 				E0B94F412ACA89EB003D82BD /* CategoryOnlyView.swift */,
 				E0B94F3B2ACA5F73003D82BD /* CategoryView.swift */,
 				E0B94F432ACA93A6003D82BD /* AffirmationView.swift */,

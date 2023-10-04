@@ -21,16 +21,10 @@ struct CategoryOnlyView: View {
            VStack {
                //Spacer()
                Text(categoryName.replacingOccurrences(of: "_", with: " "))
-               
                    .foregroundColor(.white)
                    .font(.headline)
-                   //.padding(.top, 150)
-                   //.padding(.bottom, 30)
-                  
                    .padding(8)
            }
-           
-           //.frame(maxWidth: .infinity , maxHeight: .infinity)
            .background(Color.white.opacity(0.3))
            .overlay {
                RoundedRectangle(cornerRadius: 5)
