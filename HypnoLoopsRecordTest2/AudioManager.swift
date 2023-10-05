@@ -109,10 +109,10 @@ class AudioManager: NSObject, ObservableObject {
             audioPlayer = try AVAudioPlayer(contentsOf: audioURL)
             audioPlayer?.delegate = self
             audioPlayer?.play()
-            
             isPlaying = true
         } catch {
-            print("Could not start playing")
+            print("Error playing audio: \(error.localizedDescription)")
+
         }
     }
     

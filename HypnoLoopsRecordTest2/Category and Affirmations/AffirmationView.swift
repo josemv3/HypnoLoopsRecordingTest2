@@ -68,7 +68,7 @@ struct AffirmationRow: View {
             }
             .padding(.vertical, 5)                // Padding around the content inside the HStack
             .frame(maxWidth: 350 , maxHeight: .infinity)
-            .background(Color.white.opacity(0.3))
+            .background(Color.blue.opacity(0.2))
             .overlay {
                 RoundedRectangle(cornerRadius: 10)
                     .stroke(Color.white, lineWidth: 2)

@@ -35,7 +35,7 @@ struct HomeTabView: View {
                     Text("Affirmations")
                 }
                 //.toolbar(.automatic, for: .tabBar)
-                .toolbarBackground(Color("ringDarkBlue").opacity(0.5), for: .tabBar)
+                //.toolbarBackground(Color("ringDarkBlue").opacity(0.5), for: .tabBar)
 
             Text("Logout Screen")
                 .tabItem {
