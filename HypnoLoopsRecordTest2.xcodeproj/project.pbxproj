@@ -8,41 +8,58 @@
 
 /* Begin PBXBuildFile section */
 		E0433E792ABA177B00AED88D /* HypnoLoopsRecordTest2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0433E782ABA177B00AED88D /* HypnoLoopsRecordTest2App.swift */; };
-		E0433E7B2ABA177B00AED88D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0433E7A2ABA177B00AED88D /* ContentView.swift */; };
 		E0433E7D2ABA177C00AED88D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0433E7C2ABA177C00AED88D /* Assets.xcassets */; };
 		E0433E802ABA177C00AED88D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0433E7F2ABA177C00AED88D /* Preview Assets.xcassets */; };
 		E0433E872ABA17A600AED88D /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0433E862ABA17A600AED88D /* AudioManager.swift */; };
-		E0433E892ABA17B700AED88D /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0433E882ABA17B700AED88D /* RecordView.swift */; };
 		E0433E8B2ABA1D2500AED88D /* RecordingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0433E8A2ABA1D2500AED88D /* RecordingsView.swift */; };
-		E0433E8D2ABA4EEC00AED88D /* RecordView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0433E8C2ABA4EEC00AED88D /* RecordView2.swift */; };
-		E0433E8F2ABA4F5700AED88D /* AnimationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0433E8E2ABA4F5700AED88D /* AnimationTest.swift */; };
-		E0433E912ABA651800AED88D /* PlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0433E902ABA651800AED88D /* PlayView.swift */; };
+		E0433E8D2ABA4EEC00AED88D /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0433E8C2ABA4EEC00AED88D /* RecordView.swift */; };
+		E0433E8F2ABA4F5700AED88D /* MainButtonAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0433E8E2ABA4F5700AED88D /* MainButtonAnimationView.swift */; };
 		E0433E932ABA656400AED88D /* TabViewHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0433E922ABA656400AED88D /* TabViewHome.swift */; };
-		E0433E952ABA97ED00AED88D /* PlayView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0433E942ABA97ED00AED88D /* PlayView2.swift */; };
+		E0433E952ABA97ED00AED88D /* PlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0433E942ABA97ED00AED88D /* PlayView.swift */; };
 		E0433E972ABB36FF00AED88D /* spanish_flea.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E0433E962ABB36FF00AED88D /* spanish_flea.mp3 */; };
 		E0433E992ABB371000AED88D /* chopin.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E0433E982ABB371000AED88D /* chopin.mp3 */; };
-		E0433E9B2ABBA55B00AED88D /* APRView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0433E9A2ABBA55B00AED88D /* APRView.swift */; };
 		E0433E9D2ABCF1AB00AED88D /* SoundScapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0433E9C2ABCF1AB00AED88D /* SoundScapeView.swift */; };
+		E0433E9F2ABCFA4300AED88D /* AudioLoopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0433E9E2ABCFA4300AED88D /* AudioLoopView.swift */; };
+		E0433EA82AC3659B00AED88D /* sound_bowls_nature.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E0433EA62AC3659A00AED88D /* sound_bowls_nature.mp3 */; };
+		E0433EA92AC3659B00AED88D /* ocean_waves.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E0433EA72AC3659B00AED88D /* ocean_waves.mp3 */; };
+		E04F563D2AC4D44300A7F1D1 /* PlaySettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04F563C2AC4D44300A7F1D1 /* PlaySettingsView.swift */; };
+		E0B94F342AC8F265003D82BD /* ocean15.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E0B94F332AC8F265003D82BD /* ocean15.mp3 */; };
+		E0B94F362ACA57D2003D82BD /* Affirmations.json in Resources */ = {isa = PBXBuildFile; fileRef = E0B94F352ACA57D1003D82BD /* Affirmations.json */; };
+		E0B94F382ACA5EDF003D82BD /* CategoryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B94F372ACA5EDF003D82BD /* CategoryData.swift */; };
+		E0B94F3A2ACA5F01003D82BD /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B94F392ACA5F01003D82BD /* CategoryViewModel.swift */; };
+		E0B94F3C2ACA5F73003D82BD /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B94F3B2ACA5F73003D82BD /* CategoryView.swift */; };
+		E0B94F422ACA89EB003D82BD /* CategoryOnlyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B94F412ACA89EB003D82BD /* CategoryOnlyView.swift */; };
+		E0B94F442ACA93A6003D82BD /* AffirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B94F432ACA93A6003D82BD /* AffirmationView.swift */; };
+		E0B94F462ACA9D80003D82BD /* LikedAffirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B94F452ACA9D80003D82BD /* LikedAffirmationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		E0433E752ABA177B00AED88D /* HypnoLoopsRecordTest2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HypnoLoopsRecordTest2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0433E782ABA177B00AED88D /* HypnoLoopsRecordTest2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HypnoLoopsRecordTest2App.swift; sourceTree = "<group>"; };
-		E0433E7A2ABA177B00AED88D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E0433E7C2ABA177C00AED88D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E0433E7F2ABA177C00AED88D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E0433E862ABA17A600AED88D /* AudioManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
-		E0433E882ABA17B700AED88D /* RecordView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordView.swift; sourceTree = "<group>"; };
 		E0433E8A2ABA1D2500AED88D /* RecordingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingsView.swift; sourceTree = "<group>"; };
-		E0433E8C2ABA4EEC00AED88D /* RecordView2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordView2.swift; sourceTree = "<group>"; };
-		E0433E8E2ABA4F5700AED88D /* AnimationTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationTest.swift; sourceTree = "<group>"; };
-		E0433E902ABA651800AED88D /* PlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayView.swift; sourceTree = "<group>"; };
+		E0433E8C2ABA4EEC00AED88D /* RecordView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordView.swift; sourceTree = "<group>"; };
+		E0433E8E2ABA4F5700AED88D /* MainButtonAnimationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainButtonAnimationView.swift; sourceTree = "<group>"; };
 		E0433E922ABA656400AED88D /* TabViewHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewHome.swift; sourceTree = "<group>"; };
-		E0433E942ABA97ED00AED88D /* PlayView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayView2.swift; sourceTree = "<group>"; };
+		E0433E942ABA97ED00AED88D /* PlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayView.swift; sourceTree = "<group>"; };
 		E0433E962ABB36FF00AED88D /* spanish_flea.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = spanish_flea.mp3; sourceTree = "<group>"; };
 		E0433E982ABB371000AED88D /* chopin.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = chopin.mp3; sourceTree = "<group>"; };
-		E0433E9A2ABBA55B00AED88D /* APRView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APRView.swift; sourceTree = "<group>"; };
 		E0433E9C2ABCF1AB00AED88D /* SoundScapeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundScapeView.swift; sourceTree = "<group>"; };
+		E0433E9E2ABCFA4300AED88D /* AudioLoopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioLoopView.swift; sourceTree = "<group>"; };
+		E0433EA62AC3659A00AED88D /* sound_bowls_nature.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sound_bowls_nature.mp3; sourceTree = "<group>"; };
+		E0433EA72AC3659B00AED88D /* ocean_waves.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ocean_waves.mp3; sourceTree = "<group>"; };
+		E04F563C2AC4D44300A7F1D1 /* PlaySettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaySettingsView.swift; sourceTree = "<group>"; };
+		E0B94F332AC8F265003D82BD /* ocean15.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ocean15.mp3; sourceTree = "<group>"; };
+		E0B94F352ACA57D1003D82BD /* Affirmations.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Affirmations.json; sourceTree = "<group>"; };
+		E0B94F372ACA5EDF003D82BD /* CategoryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryData.swift; sourceTree = "<group>"; };
+		E0B94F392ACA5F01003D82BD /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
+		E0B94F3B2ACA5F73003D82BD /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
+		E0B94F412ACA89EB003D82BD /* CategoryOnlyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryOnlyView.swift; sourceTree = "<group>"; };
+		E0B94F432ACA93A6003D82BD /* AffirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AffirmationView.swift; sourceTree = "<group>"; };
+		E0B94F452ACA9D80003D82BD /* LikedAffirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedAffirmationView.swift; sourceTree = "<group>"; };
+		E0B94F4A2ACD25F3003D82BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,21 +92,20 @@
 		E0433E772ABA177B00AED88D /* HypnoLoopsRecordTest2 */ = {
 			isa = PBXGroup;
 			children = (
+				E0B94F4A2ACD25F3003D82BD /* Info.plist */,
 				E0433E782ABA177B00AED88D /* HypnoLoopsRecordTest2App.swift */,
-				E0433E7A2ABA177B00AED88D /* ContentView.swift */,
-				E0433E882ABA17B700AED88D /* RecordView.swift */,
-				E0433E8E2ABA4F5700AED88D /* AnimationTest.swift */,
-				E0433E9A2ABBA55B00AED88D /* APRView.swift */,
-				E0433E862ABA17A600AED88D /* AudioManager.swift */,
-				E0433E8C2ABA4EEC00AED88D /* RecordView2.swift */,
-				E0433E902ABA651800AED88D /* PlayView.swift */,
-				E0433E942ABA97ED00AED88D /* PlayView2.swift */,
-				E0433E8A2ABA1D2500AED88D /* RecordingsView.swift */,
-				E0433E9C2ABCF1AB00AED88D /* SoundScapeView.swift */,
 				E0433E922ABA656400AED88D /* TabViewHome.swift */,
+				E0433E862ABA17A600AED88D /* AudioManager.swift */,
+				E0B94F492ACC9570003D82BD /* Recording and Playback Views */,
+				E0B94F472ACC92BE003D82BD /* Category and Affirmations */,
+				E0B94F482ACC9547003D82BD /* Extra Test Views */,
+				E0B94F352ACA57D1003D82BD /* Affirmations.json */,
 				E0433E7C2ABA177C00AED88D /* Assets.xcassets */,
 				E0433E982ABB371000AED88D /* chopin.mp3 */,
 				E0433E962ABB36FF00AED88D /* spanish_flea.mp3 */,
+				E0433EA72AC3659B00AED88D /* ocean_waves.mp3 */,
+				E0433EA62AC3659A00AED88D /* sound_bowls_nature.mp3 */,
+				E0B94F332AC8F265003D82BD /* ocean15.mp3 */,
 				E0433E7E2ABA177C00AED88D /* Preview Content */,
 			);
 			path = HypnoLoopsRecordTest2;
@@ -101,6 +117,40 @@
 				E0433E7F2ABA177C00AED88D /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		E0B94F472ACC92BE003D82BD /* Category and Affirmations */ = {
+			isa = PBXGroup;
+			children = (
+				E0B94F392ACA5F01003D82BD /* CategoryViewModel.swift */,
+				E0B94F372ACA5EDF003D82BD /* CategoryData.swift */,
+				E0B94F412ACA89EB003D82BD /* CategoryOnlyView.swift */,
+				E0B94F3B2ACA5F73003D82BD /* CategoryView.swift */,
+				E0B94F432ACA93A6003D82BD /* AffirmationView.swift */,
+				E0B94F452ACA9D80003D82BD /* LikedAffirmationView.swift */,
+			);
+			path = "Category and Affirmations";
+			sourceTree = "<group>";
+		};
+		E0B94F482ACC9547003D82BD /* Extra Test Views */ = {
+			isa = PBXGroup;
+			children = (
+				E0433E9E2ABCFA4300AED88D /* AudioLoopView.swift */,
+			);
+			path = "Extra Test Views";
+			sourceTree = "<group>";
+		};
+		E0B94F492ACC9570003D82BD /* Recording and Playback Views */ = {
+			isa = PBXGroup;
+			children = (
+				E0433E8E2ABA4F5700AED88D /* MainButtonAnimationView.swift */,
+				E0433E8C2ABA4EEC00AED88D /* RecordView.swift */,
+				E0433E942ABA97ED00AED88D /* PlayView.swift */,
+				E0433E8A2ABA1D2500AED88D /* RecordingsView.swift */,
+				E0433E9C2ABCF1AB00AED88D /* SoundScapeView.swift */,
+				E04F563C2AC4D44300A7F1D1 /* PlaySettingsView.swift */,
+			);
+			path = "Recording and Playback Views";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,7 +213,11 @@
 			files = (
 				E0433E992ABB371000AED88D /* chopin.mp3 in Resources */,
 				E0433E802ABA177C00AED88D /* Preview Assets.xcassets in Resources */,
+				E0433EA82AC3659B00AED88D /* sound_bowls_nature.mp3 in Resources */,
 				E0433E972ABB36FF00AED88D /* spanish_flea.mp3 in Resources */,
+				E0B94F362ACA57D2003D82BD /* Affirmations.json in Resources */,
+				E0B94F342AC8F265003D82BD /* ocean15.mp3 in Resources */,
+				E0433EA92AC3659B00AED88D /* ocean_waves.mp3 in Resources */,
 				E0433E7D2ABA177C00AED88D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -175,17 +229,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E0433E8D2ABA4EEC00AED88D /* RecordView2.swift in Sources */,
+				E0433E8D2ABA4EEC00AED88D /* RecordView.swift in Sources */,
+				E0B94F462ACA9D80003D82BD /* LikedAffirmationView.swift in Sources */,
 				E0433E932ABA656400AED88D /* TabViewHome.swift in Sources */,
-				E0433E8F2ABA4F5700AED88D /* AnimationTest.swift in Sources */,
+				E0433E8F2ABA4F5700AED88D /* MainButtonAnimationView.swift in Sources */,
 				E0433E9D2ABCF1AB00AED88D /* SoundScapeView.swift in Sources */,
-				E0433E912ABA651800AED88D /* PlayView.swift in Sources */,
-				E0433E9B2ABBA55B00AED88D /* APRView.swift in Sources */,
+				E0B94F382ACA5EDF003D82BD /* CategoryData.swift in Sources */,
 				E0433E8B2ABA1D2500AED88D /* RecordingsView.swift in Sources */,
+				E0B94F3C2ACA5F73003D82BD /* CategoryView.swift in Sources */,
+				E0B94F3A2ACA5F01003D82BD /* CategoryViewModel.swift in Sources */,
+				E04F563D2AC4D44300A7F1D1 /* PlaySettingsView.swift in Sources */,
 				E0433E872ABA17A600AED88D /* AudioManager.swift in Sources */,
-				E0433E892ABA17B700AED88D /* RecordView.swift in Sources */,
-				E0433E952ABA97ED00AED88D /* PlayView2.swift in Sources */,
-				E0433E7B2ABA177B00AED88D /* ContentView.swift in Sources */,
+				E0433E9F2ABCFA4300AED88D /* AudioLoopView.swift in Sources */,
+				E0B94F442ACA93A6003D82BD /* AffirmationView.swift in Sources */,
+				E0B94F422ACA89EB003D82BD /* CategoryOnlyView.swift in Sources */,
+				E0433E952ABA97ED00AED88D /* PlayView.swift in Sources */,
 				E0433E792ABA177B00AED88D /* HypnoLoopsRecordTest2App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -243,7 +301,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -297,7 +355,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -318,6 +376,9 @@
 				DEVELOPMENT_TEAM = QDDDA27M89;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HypnoLoopsRecordTest2/Info.plist;
+				INFOPLIST_KEY_NSDocumentsFolderUsageDescription = "Please provide access for saving recorded affirmations.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Access microphone to record affirmations.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -328,7 +389,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.mojo5.ObjCTestApp.HypnoLoopsRecordTest2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mojo5.HypnoLoopsRecordTest2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -347,6 +408,9 @@
 				DEVELOPMENT_TEAM = QDDDA27M89;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HypnoLoopsRecordTest2/Info.plist;
+				INFOPLIST_KEY_NSDocumentsFolderUsageDescription = "Please provide access for saving recorded affirmations.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Access microphone to record affirmations.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -357,7 +421,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.mojo5.ObjCTestApp.HypnoLoopsRecordTest2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mojo5.HypnoLoopsRecordTest2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
