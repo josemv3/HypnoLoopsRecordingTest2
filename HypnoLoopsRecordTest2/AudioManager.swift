@@ -40,27 +40,58 @@ class AudioManager: NSObject, ObservableObject {
     var playSecondWorkItem: DispatchWorkItem?
     var restartLoopWorkItem: DispatchWorkItem?
     var onLoopShouldRestart: (() -> Void)?
-
-
+    
+    
     override init() {
-           super.init()
-           loadExistingRecordings()
-       }
+        super.init()
+        loadExistingRecordings()
+        //setupAudioSession()
+    }
+    
+//    func setupAudioSession() {
+//        let audioSession = AVAudioSession.sharedInstance()
+//        do {
+//            try audioSession.setCategory(.playAndRecord, mode: .default, options: [.defaultToSpeaker])
+//            try audioSession.setActive(false) // You don't want it to be active yet.
+//        } catch {
+//            print("Setting up audio session failed: \(error)")
+//        }
+//    }
+    
+//    func activateAudioSession() {
+//        let audioSession = AVAudioSession.sharedInstance()
+//        do {
+//            try audioSession.setActive(true)
+//        } catch {
+//            print("Activating audio session failed: \(error)")
+//        }
+//    }
     
     func startRecording() {
+        //activateAudioSession()
         // Generate the recording name based on the current date and time
-           let recordingName = generateRecordingName()
-           let audioFilename = getDocumentsDirectory().appendingPathComponent(recordingName)
+        let recordingName = generateRecordingName()
+        let audioFilename = getDocumentsDirectory().appendingPathComponent(recordingName)
+        
+        let audioSession = AVAudioSession.sharedInstance()
         
         let settings = [
-            AVFormatIDKey: Int(kAudioFormatLinearPCM),
-            AVSampleRateKey: 44100,
-            AVNumberOfChannelsKey: 1,
-            AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue,
-            AVEncoderBitRateKey: 320000
+            //            AVFormatIDKey: Int(kAudioFormatLinearPCM),
+            //            AVSampleRateKey: 44100,
+            //            AVNumberOfChannelsKey: 1,
+            //            AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue,
+            //            AVEncoderBitRateKey: 320000
+            AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
+            AVEncoderBitRateKey: 320000,  // 320 kbps
+               AVSampleRateKey: 44100,       // 44.1 kHz
+               AVNumberOfChannelsKey: 2,    // Stereo
+                        AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue
         ]
         
         do {
+            try audioSession.setCategory(.record, mode: .default)
+            try audioSession.setActive(true)
+            
             audioRecorder = try AVAudioRecorder(url: audioFilename, settings: settings)
             audioRecorder?.record()
             isRecording = true
@@ -79,13 +110,24 @@ class AudioManager: NSObject, ObservableObject {
         return "HL_\(formattedDate).m4a"
     }
     
+//    func deactivateAudioSession() {
+//        let audioSession = AVAudioSession.sharedInstance()
+//        do {
+//            try audioSession.setActive(false)
+//        } catch {
+//            print("Deactivating audio session failed: \(error)")
+//        }
+//    }
+    
     func stopRecording() {
+        
         audioRecorder?.stop()
         isRecording = false
         
         if let url = audioRecorder?.url {
             addAndSortRecording(url: url)
         }
+        //deactivateAudioSession()
     }
     
     func addAndSortRecording(url: URL) {
@@ -104,8 +146,13 @@ class AudioManager: NSObject, ObservableObject {
     
     func startPlaying(audioURL: URL) {
         print("Started playing audio")
+        //activateAudioSession()
 
         do {
+            let audioSession = AVAudioSession.sharedInstance()
+            try audioSession.setCategory(.playback, mode: .default) // Set category to playback
+            try audioSession.setActive(true)
+            
             audioPlayer = try AVAudioPlayer(contentsOf: audioURL)
             audioPlayer?.delegate = self
             audioPlayer?.play()
@@ -231,7 +278,7 @@ class AudioManager: NSObject, ObservableObject {
         do {
             audioPlayerSecond = try AVAudioPlayer(contentsOf: url)
             audioPlayerSecond?.delegate = self
-            audioPlayerSecond?.volume = 0.5
+            audioPlayerSecond?.volume = 0.25
             audioPlayerSecond?.play()
             isPlayingSecondAudio = true
 
@@ -370,6 +417,8 @@ class AudioManager: NSObject, ObservableObject {
 
 extension AudioManager: AVAudioPlayerDelegate {
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        //deactivateAudioSession()
+
         if player === audioPlayer {
                    isPlaying = false
                    //currentlyPlayingURL = nil
