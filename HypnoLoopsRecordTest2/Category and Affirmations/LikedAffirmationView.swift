@@ -26,9 +26,9 @@ struct LikedAffirmationView: View {
                     Spacer()
                     Button {
                         dismiss()
-                        print("cancel")
+                        print("Done")
                     } label: {
-                        Text("Cancel")
+                        Text("Done")
                     }
                     .padding(.top, 10)
                 }
