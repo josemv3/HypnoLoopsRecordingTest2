@@ -47,7 +47,7 @@ struct RecordView: View {
                     MainButtonAnimationView(audioManager: audioManager, startSymbol: "stop", stopSymbol: "mic")
                 }
                 
-                Spacer()
+                //Spacer()
                 //Circular Button
                 Button(action: {
                     // insert your action here
@@ -75,7 +75,7 @@ struct RecordView: View {
                     Circle()
                         .stroke(Color("ringThirdBlue"), lineWidth: 1)
                 )
-                //.padding(.vertical, 30)
+                .padding(.vertical, 30)
                 
                 Text(selectedAffirmation ?? "No Affirmation Selected")
 
@@ -104,7 +104,7 @@ struct RecordView: View {
                         }
                 }
                     
-                //Spacer()
+                Spacer()
             }
         }
         .sheet(item: $activeSheet) { item in

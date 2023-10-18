@@ -179,6 +179,9 @@ class AudioManager: NSObject, ObservableObject {
                 //currentlyPlayingURL = nil
                 return
             }
+            let audioSession = AVAudioSession.sharedInstance()
+            try audioSession.setCategory(.playback, mode: .default) // Set category to playback
+            try audioSession.setActive(true)
             
             audioPlayer = try AVAudioPlayer(contentsOf: url)
             audioPlayer?.delegate = self
@@ -248,6 +251,10 @@ class AudioManager: NSObject, ObservableObject {
                 return
             }
             
+            let audioSession = AVAudioSession.sharedInstance()
+            try audioSession.setCategory(.playback, mode: .default) // Set category to playback
+            try audioSession.setActive(true)
+            
             audioPlayer = try AVAudioPlayer(contentsOf: url)
             audioPlayer?.delegate = self
             audioPlayer?.play()
@@ -273,7 +280,7 @@ class AudioManager: NSObject, ObservableObject {
         }
     }
 
-    //PLay Second version of audio at 50% volume
+    //Play Second version of audio at 50% volume
     func playSecondVersionOfAudio(url: URL) {
         do {
             audioPlayerSecond = try AVAudioPlayer(contentsOf: url)
