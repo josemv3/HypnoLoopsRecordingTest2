@@ -14,21 +14,21 @@ struct HomeTabView: View {
     
     var body: some View {
         TabView {
-            PlayView(audioManager: audioManager)
-                //.padding(.top, 80)
-                .tabItem {
-                    Image(systemName: "house")
-                    Text("Home")
-                }
-                
-
+            
             RecordView(audioManager: audioManager, viewModel: viewModel)
                 //.padding(.top, 80)
                 .tabItem {
                     Image(systemName: "mic")
                     Text("Record")
                 }
-
+            
+            PlayView(audioManager: audioManager)
+                //.padding(.top, 80)
+                .tabItem {
+                    Image(systemName: "play.fill")
+                    Text("Loop")
+                }
+            
             CategoryView(viewModel: viewModel)
                 .tabItem {
                     Image(systemName: "square.grid.2x2")

@@ -24,6 +24,7 @@ struct RecordView: View {
     @State private var settingsDetent = PresentationDetent.medium
     
     @State private var selectedAffirmation: String?
+    @State private var showAlert: Bool = false
 
 
     var body: some View {
@@ -43,20 +44,24 @@ struct RecordView: View {
                     .frame(width: 300, height: 100, alignment: .center)
                 
                 ZStack {
-                    MainButtonAnimationView(audioManager: audioManager, startSymbol: "mic.fill", stopSymbol: "mic")
+                    MainButtonAnimationView(audioManager: audioManager, startSymbol: "stop", stopSymbol: "mic")
                 }
                 
+                Spacer()
                 //Circular Button
                 Button(action: {
                     // insert your action here
-                    if audioManager.isPlaying {
-                        audioManager.stopPlaying()
-                    } else {
-                        // Play the latest recording 1 of 2
-                        if let lastRecording = audioManager.recordings.first {
-                            audioManager.startPlaying(audioURL: lastRecording)
-                        }
-                    }
+                    if audioManager.recordings.isEmpty {
+                          showAlert = true
+                      } else {
+                          if audioManager.isPlaying {
+                              audioManager.stopPlaying()
+                          } else {
+                              if let lastRecording = audioManager.recordings.first {
+                                  audioManager.startPlaying(audioURL: lastRecording)
+                              }
+                          }
+                      }
                     print("Play button pressed!")
                 }) {
                     Image(systemName: audioManager.isPlaying ? "stop.fill" : "play" )
@@ -70,7 +75,7 @@ struct RecordView: View {
                     Circle()
                         .stroke(Color("ringThirdBlue"), lineWidth: 1)
                 )
-                .padding(.vertical, 30)
+                //.padding(.vertical, 30)
                 
                 Text(selectedAffirmation ?? "No Affirmation Selected")
 
@@ -99,7 +104,7 @@ struct RecordView: View {
                         }
                 }
                     
-                Spacer()
+                //Spacer()
             }
         }
         .sheet(item: $activeSheet) { item in
@@ -130,6 +135,9 @@ struct RecordView: View {
                         selection: $settingsDetent
                     )
             }
+        }
+        .alert(isPresented: $showAlert) {
+            Alert(title: Text("No Recordings"), message: Text("Please record an affirmation."), dismissButton: .default(Text("OK")))
         }
     }
     private var fileNameInputView: some View {

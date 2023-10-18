@@ -32,12 +32,12 @@ struct PlayView: View {
                     .resizable()
                     .scaledToFit()
                     .frame(width: 300, height: 100, alignment: .center)
-                    .padding(5)
+                    //.padding(5)
                 
                 ZStack {
                     MainButtonAnimationView(audioManager: audioManager, audioURLToPlay: selectedRecording, musicURLToPlay: selectedSoundScape,  startSymbol: "stop.fill", stopSymbol: "play" )
                 }
-                
+                //Spacer()
                 HStack {
                     Button(action: {
                        self.activeSheet = .settings
@@ -46,15 +46,15 @@ struct PlayView: View {
                        Image(systemName: "slider.horizontal.3")
                    }
                    .font(.title)
-                   .padding(5)
+                   //.padding(5)
                    
-                   Spacer()
+                   //Spacer()
                     
                     Text(audioManager.timeRemaining.stringFromTimeInterval())
                     Text("/")
                     Text(audioManager.musicDuration.stringFromTimeInterval())
                     
-                    Spacer()
+                    //Spacer()
                     
                     Button(action: {
                         
@@ -103,7 +103,7 @@ struct PlayView: View {
                             }
                     }
                 }
-                Spacer()
+                //Spacer()
             }
         }
         .sheet(item: $activeSheet) { item in

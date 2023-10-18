@@ -23,6 +23,7 @@ struct SoundScapeView: View {
             HStack {
                 Spacer()
                 Button {
+                    dismiss()
                     print("cancel")
                 } label: {
                     Text("Cancel")
