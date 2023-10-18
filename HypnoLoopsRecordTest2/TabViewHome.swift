@@ -26,7 +26,7 @@ struct HomeTabView: View {
                 //.padding(.top, 80)
                 .tabItem {
                     Image(systemName: "play.fill")
-                    Text("Loop")
+                    Text("Play")
                 }
             
             CategoryView(viewModel: viewModel)
