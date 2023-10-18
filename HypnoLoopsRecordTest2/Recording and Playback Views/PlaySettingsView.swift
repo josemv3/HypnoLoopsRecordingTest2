@@ -38,7 +38,7 @@ struct PlaySettingsView: View {
                             .font(.subheadline)
                             .padding()
                             .foregroundColor(.black)
-                        Slider(value: $audioManager.delayFactor2, in: 0.02...0.26, step: 0.02) {
+                        Slider(value: $audioManager.delayFactor2, in: -0.20...0.26, step: 0.02) {
                             Text("")
                         }
                         .onChange(of: audioManager.delayFactor2) { newValue in
@@ -51,7 +51,7 @@ struct PlaySettingsView: View {
                             .font(.subheadline)
                             .padding()
                             .foregroundColor(.black)
-                        Slider(value: $audioManager.delayFactor, in: 0.02...0.26, step: 0.02) {
+                        Slider(value: $audioManager.delayFactor, in: -0.20...0.26, step: 0.02) {
                             Text("")
                         }
                         .onChange(of: audioManager.delayFactor) { newValue in
