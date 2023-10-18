@@ -34,11 +34,11 @@ struct PlaySettingsView: View {
 
                     //Section("Loop Speed") {
                     HStack {
-                        Text("Inner Loop: \(audioManager.delayFactor2 * 218, specifier: "%.0f")")
+                        Text("Inner Loop: \(audioManager.delayFactor2 * 384, specifier: "%.0f")")
                             .font(.subheadline)
                             .padding()
                             .foregroundColor(.black)
-                        Slider(value: $audioManager.delayFactor2, in: 0.02...0.46, step: 0.02) {
+                        Slider(value: $audioManager.delayFactor2, in: 0.02...0.26, step: 0.02) {
                             Text("")
                         }
                         .onChange(of: audioManager.delayFactor2) { newValue in
@@ -47,11 +47,11 @@ struct PlaySettingsView: View {
                     }
                     
                     HStack {
-                        Text("Outer Loop: \(audioManager.delayFactor * 218, specifier: "%.0f")")
+                        Text("Outer Loop: \(audioManager.delayFactor * 384, specifier: "%.0f")")
                             .font(.subheadline)
                             .padding()
                             .foregroundColor(.black)
-                        Slider(value: $audioManager.delayFactor, in: 0.02...0.46, step: 0.02) {
+                        Slider(value: $audioManager.delayFactor, in: 0.02...0.26, step: 0.02) {
                             Text("")
                         }
                         .onChange(of: audioManager.delayFactor) { newValue in

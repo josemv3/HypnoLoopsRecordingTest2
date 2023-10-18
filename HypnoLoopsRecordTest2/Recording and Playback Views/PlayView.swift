@@ -46,15 +46,15 @@ struct PlayView: View {
                        Image(systemName: "slider.horizontal.3")
                    }
                    .font(.title)
-                   //.padding(5)
+                   .padding(5)
                    
-                   //Spacer()
+                   Spacer()
                     
                     Text(audioManager.timeRemaining.stringFromTimeInterval())
                     Text("/")
                     Text(audioManager.musicDuration.stringFromTimeInterval())
                     
-                    //Spacer()
+                    Spacer()
                     
                     Button(action: {
                         
@@ -103,7 +103,7 @@ struct PlayView: View {
                             }
                     }
                 }
-                //Spacer()
+                Spacer()
             }
         }
         .sheet(item: $activeSheet) { item in
