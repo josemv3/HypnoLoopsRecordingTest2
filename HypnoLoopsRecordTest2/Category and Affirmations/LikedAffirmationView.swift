@@ -22,7 +22,22 @@ struct LikedAffirmationView: View {
                 .edgesIgnoringSafeArea(.all)
             
             ScrollView {
+                HStack {
+                    Spacer()
+                    Button {
+                        dismiss()
+                        print("cancel")
+                    } label: {
+                        Text("Cancel")
+                    }
+                    .padding(.top, 10)
+                }
+                .padding(.horizontal, 60)
+                
                 Text("Liked Affirmations:")
+                    .foregroundStyle(Color("ringDarkBlue"))
+                    .padding()
+                    .font(.title)
                 ForEach(viewModel.likedAffirmations, id: \.id) { affirmation in
                     AffirmationRow(viewModel: viewModel, affirmation: affirmation)
                         .onTapGesture {

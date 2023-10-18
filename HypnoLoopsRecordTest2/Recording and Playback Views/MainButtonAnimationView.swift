@@ -82,7 +82,7 @@ struct MainButtonAnimationView: View {
     
     // Rename this function since it primarily controls the audio state.
     func handleAudioControl() {
-        if startSymbol == "mic.fill" {
+        if startSymbol == "stop" {
             if audioManager.isRecording {
                 audioManager.stopRecording()
                 animate = false

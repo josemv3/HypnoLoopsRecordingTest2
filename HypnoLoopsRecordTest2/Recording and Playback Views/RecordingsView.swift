@@ -30,68 +30,82 @@ struct RecordingsView: View {
     
     var body: some View {
         
-        List {
+        VStack {
+            HStack {
+                Spacer()
+                Button {
+                    dismiss()
+                    print("cancel")
+                } label: {
+                    Text("Cancel")
+                }
+                .padding(.top, 10)
+            }
+            .padding(.horizontal, 20)
             
-            Section("Most Recent Recording:") {
-                ForEach(audioManager.recordings, id: \.self) { recording in
+            List {
+                
+                Section("Most Recent Recording:") {
+                    ForEach(audioManager.recordings, id: \.self) { recording in
 
-                    HStack {
-                        
-                        //Button for playback
-                        Button(action: {
-                            audioManager.playRecording(url: recording)
-                        }) {
-                            HStack {
-                                if audioManager.currentlyPlayingURL == recording {
-                                Image(systemName: "play.circle.fill")
-                                    .foregroundColor(.blue)
-                            }
-                                Text(recording.deletingPathExtension().lastPathComponent)
-                                Spacer()
-                            }
-                        }
-                        .buttonStyle(PlainButtonStyle())  //allows buttons to work independently
-                        
-                        
-                        //Select button
-                        if showSelectButton {
+                        HStack {
+                            
+                            //Button for playback
                             Button(action: {
-                                self.selectRecording(recording)
-                                dismiss()
+                                audioManager.playRecording(url: recording)
                             }) {
-                                Image(systemName: "arrow.left.circle") //"arrow.right.circle"
+                                HStack {
+                                    if audioManager.currentlyPlayingURL == recording {
+                                    Image(systemName: "play.circle.fill")
+                                        .foregroundColor(.blue)
+                                }
+                                    Text(recording.deletingPathExtension().lastPathComponent)
+                                    Spacer()
+                                }
                             }
-                            .foregroundColor(.blue)
-                            .padding(.trailing, 10)
-                            .buttonStyle(PlainButtonStyle())
-                        }
-                        
+                            .buttonStyle(PlainButtonStyle())  //allows buttons to work independently
+                            
+                            
+                            //Select button
+                            if showSelectButton {
+                                Button(action: {
+                                    self.selectRecording(recording)
+                                    dismiss()
+                                }) {
+                                    Image(systemName: "arrow.left.circle") //"arrow.right.circle"
+                                }
+                                .foregroundColor(.blue)
+                                .padding(.trailing, 10)
+                                .buttonStyle(PlainButtonStyle())
+                            }
+                            
 
-                        //Button for editing the recording name
-                        Button(action: {
-                            self.recordingBeingEdited = recording
-                            self.editedName = recording.deletingPathExtension().lastPathComponent
-                            self.isShowingEditAlert.toggle()
-                        }) {
-                            Image(systemName: "pencil")
-                        }
-                        .contextMenu {
+                            //Button for editing the recording name
                             Button(action: {
                                 self.recordingBeingEdited = recording
                                 self.editedName = recording.deletingPathExtension().lastPathComponent
                                 self.isShowingEditAlert.toggle()
                             }) {
-                                Text("Edit")
                                 Image(systemName: "pencil")
+                            }
+                            .contextMenu {
+                                Button(action: {
+                                    self.recordingBeingEdited = recording
+                                    self.editedName = recording.deletingPathExtension().lastPathComponent
+                                    self.isShowingEditAlert.toggle()
+                                }) {
+                                    Text("Edit")
+                                    Image(systemName: "pencil")
+                                }
                             }
                         }
                     }
-                }
-                .onDelete { indexSet in
-                    for index in indexSet {
-                        let fileURL = audioManager.recordings[index]
-                        try? FileManager.default.removeItem(at: fileURL)
-                        audioManager.recordings.remove(at: index)
+                    .onDelete { indexSet in
+                        for index in indexSet {
+                            let fileURL = audioManager.recordings[index]
+                            try? FileManager.default.removeItem(at: fileURL)
+                            audioManager.recordings.remove(at: index)
+                        }
                     }
                 }
             }
