@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SoundScapeView: View {
     @Environment(\.dismiss) var dismiss
-    let mp3Files = ["chopin", "spanish_flea", "ocean_waves", "sound_bowls_nature", "ocean15"] // The names of your mp3 files
+    let mp3Files = ["chopin", "ocean_waves", "sound_bowls_nature", "ocean15"] // The names of your mp3 files
     //@State private var selectedScape: String?
     @ObservedObject var audioManager = AudioManager()
     var onSelect: ((URL) -> Void)?
