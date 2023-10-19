@@ -69,22 +69,6 @@ struct PlayView: View {
                 .frame(width: 300, height: 50)
                 
                 VStack(spacing: 10) {
-                    //Soundscape Button
-                    HStack {
-                        Text("Sounds: \(selectedSoundScape?.deletingPathExtension().lastPathComponent.capitalized.replacingOccurrences(of: "_", with: " ") ?? "None")" )
-                            .foregroundColor(.white)
-                            .frame(width: 300, height: 40)
-                            .padding(.leading, 3)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 8)
-                                    .stroke(Color.white, lineWidth: 1)
-                                    
-                            )
-                            .onTapGesture {
-                                self.activeSheet = .soundScape
-                            }
-                    }
-                    
                     
                     // Recording Button
                     HStack {
@@ -100,6 +84,22 @@ struct PlayView: View {
                             )
                             .onTapGesture {
                                 self.activeSheet = .recordings
+                            }
+                    }
+                    
+                    //Soundscape Button
+                    HStack {
+                        Text("Sounds: \(selectedSoundScape?.deletingPathExtension().lastPathComponent.capitalized.replacingOccurrences(of: "_", with: " ") ?? "None")" )
+                            .foregroundColor(.white)
+                            .frame(width: 300, height: 40)
+                            .padding(.leading, 3)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 8)
+                                    .stroke(Color.white, lineWidth: 1)
+                                    
+                            )
+                            .onTapGesture {
+                                self.activeSheet = .soundScape
                             }
                     }
                 }
