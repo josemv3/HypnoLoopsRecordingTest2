@@ -47,11 +47,11 @@ struct PlaySettingsView: View {
 //                    }
                     
                     HStack {
-                        Text("Outer Loop: \(audioManager.delayFactor * 384, specifier: "%.0f")")
+                        Text("Loop Speed: \(audioManager.delayFactor * 384, specifier: "%.0f")")
                             .font(.subheadline)
                             .padding()
                             .foregroundColor(.black)
-                        Slider(value: $audioManager.delayFactor, in: -0.20...0.26, step: 0.02) {
+                        Slider(value: $audioManager.delayFactor, in: -0.30...0.26, step: 0.02) {
                             Text("")
                         }
                         .onChange(of: audioManager.delayFactor) { newValue in
@@ -61,7 +61,7 @@ struct PlaySettingsView: View {
 
                 }
                 
-                Section("Loop Volume") {
+                Section("Playback Volume") {
                     HStack {
                         Text("Music: \(Int(audioManager.musicVolume * 100))%")
                             .font(.subheadline)
