@@ -19,7 +19,7 @@ class AudioManager: NSObject, ObservableObject {
     @Published var currentlyPlayingURL: URL?
     @Published var currentlyPlayingMusicURL: URL?
     @Published var delayFactor: Double = 0.14 //20 should be max speed (OuterLoop)
-    @Published var delayFactor2: Double = 0.14 //(InnerLoop)
+    //@Published var delayFactor2: Double = 0.14 //(InnerLoop)
     
     @Published var musicVolume: Float = 1.0
     @Published var mainVocalsAudio: Float = 1.0
@@ -269,7 +269,7 @@ class AudioManager: NSObject, ObservableObject {
             }
             
             //innerloop for second play at 50% reduced volume.
-            let delay = (audioPlayer?.duration ?? 0) * (1 - delayFactor2) // restart loop of firt audio
+            let delay = (audioPlayer?.duration ?? 0) * (1 - delayFactor) // restart loop of firt audio
             DispatchQueue.main.asyncAfter(deadline: .now() + delay, execute: playSecondWorkItem!)
         
             

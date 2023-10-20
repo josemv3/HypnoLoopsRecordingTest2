@@ -33,18 +33,18 @@ struct PlaySettingsView: View {
                 Section("Playback Settings") {
 
                     //Section("Loop Speed") {
-                    HStack {
-                        Text("Inner Loop: \(audioManager.delayFactor2 * 384, specifier: "%.0f")")
-                            .font(.subheadline)
-                            .padding()
-                            .foregroundColor(.black)
-                        Slider(value: $audioManager.delayFactor2, in: -0.20...0.26, step: 0.02) {
-                            Text("")
-                        }
-                        .onChange(of: audioManager.delayFactor2) { newValue in
-                                            audioManager.adjustRestartDelay(newValue)
-                                        }
-                    }
+//                    HStack {
+//                        Text("Inner Loop: \(audioManager.delayFactor2 * 384, specifier: "%.0f")")
+//                            .font(.subheadline)
+//                            .padding()
+//                            .foregroundColor(.black)
+//                        Slider(value: $audioManager.delayFactor2, in: -0.20...0.26, step: 0.02) {
+//                            Text("")
+//                        }
+//                        .onChange(of: audioManager.delayFactor2) { newValue in
+//                                            audioManager.adjustRestartDelay(newValue)
+//                                        }
+//                    }
                     
                     HStack {
                         Text("Outer Loop: \(audioManager.delayFactor * 384, specifier: "%.0f")")
